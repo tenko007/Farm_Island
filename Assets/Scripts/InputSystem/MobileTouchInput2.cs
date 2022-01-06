@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace InputSystem
 {
-    public class MobileTouchInput : IInputSystem
+    public class MobileTouchInput2 : IInputSystem
     {
         public bool ClickStart()
         {
@@ -78,16 +78,39 @@ namespace InputSystem
             float x0 = Screen.width / 2f;
             float y0 = Screen.height / 2f;
             
-            float oppositeCathetP1 = p1.y - y0; 
-            float oppositeCathetP2 = p2.y - y0; 
+            float oppositeCathetP1 = Mathf.Abs(p1.y - y0); 
+            float oppositeCathetP2 = Mathf.Abs(p2.y - y0); 
             
-            float adjacentCathetP1 = p1.x - x0; 
-            float adjacentCathetP2 = p2.x - x0;
+            float adjacentCathetP1 = Mathf.Abs(p1.x - x0); 
+            float adjacentCathetP2 = Mathf.Abs(p2.x - x0);
   
             float angleToP1 = Mathf.Atan(oppositeCathetP1 / adjacentCathetP1);
             float angleToP2 = Mathf.Atan(oppositeCathetP2 / adjacentCathetP2);
 
+            if (Mathf.Abs(angleToP1 - angleToP2) > 0.01f)
+                Debug.Log($"Angles Pre Update: angle1 = {angleToP1}, angle2 = {angleToP2}");
+
+            angleToP1 = UpdateAngleByQuarter(angleToP1, p1 - new Vector2(x0, y0));            
+            angleToP2 = UpdateAngleByQuarter(angleToP2, p2 - new Vector2(x0, y0));
+
+            if (Mathf.Abs(angleToP1 - angleToP2) > 0.01f)
+                Debug.Log($"Angles After Update: angle1 = {angleToP1}, angle2 = {angleToP2}");
+
+            angleToP1 = angleToP1 % 360;
+            angleToP2 = angleToP2 % 360;
+
             float angle = angleToP2 - angleToP1;
+            return angle;
+        }
+
+        private float UpdateAngleByQuarter(float angle, Vector2 point)
+        {
+            if (point.x < 0 && point.y > 0)
+                return 180 - angle;
+            else if (point.x < 0 && point.y < 0)
+                return 180 + angle;
+            else if (point.x > 0 && point.y < 0)
+                return 360 - angle;
             return angle;
         }
 

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 #if (UNITY_ANDROID || UNITY_IOS) && (!UNITY_EDITOR)
         InputSystem = new MobileTouchInput();
 #else
-        InputSystem = new DesktopTouchInput();
+        InputSystem = new DesktopInput();
 #endif
     }
 }

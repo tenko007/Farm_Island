@@ -2,50 +2,71 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Serialization;
+using Utils;
 
 namespace PlayerMovementSystem
 {
     public class PlayerMovement : MonoBehaviour, IPlayerMovement
     {
-        [SerializeField] Camera _camera;
-        [SerializeField] private float cameraMovingSpeed = 7f;
-        [SerializeField] private float cameraScalingSpeed = 12f;
-        [SerializeField] private float cameraRotatingSpeed = 5f;
+        [SerializeField] private Camera _camera;
+
+        [Header("Speed Setup")]
+        [SerializeField] private float movingSpeed = 1f;
+        [SerializeField] private float scalingSpeed = 60f;
+        [SerializeField] private float rotatingSpeed = 0.05f;
         
-        [SerializeField] private float startMainCameraFieldOfView = 10f;
-        [SerializeField] private float maxMainCameraFieldOfView = 20f;
-        [SerializeField] private float minMainCameraFieldOfView = 2f;
+        [Header("Move Borders")]
+        [SerializeField] private float minXCameraPosition = -3f;
+        [SerializeField] private float maxXCameraPosition = 3f;
+        [SerializeField] private float minZCameraPosition = -3f;
+        [SerializeField] private float maxZCameraPosition = 3f;
         
-        [SerializeField] private float lerpCoefficient = 0.2f;
+        [Header("Field Of View Borders")]
+        [SerializeField] private float minFieldOfView = 30f;
+        [SerializeField] private float maxFieldOfView = 100f;
 
         public void Move(Vector3 direction)
         {
-            Vector3 cameraPosition = _camera.transform.position;
-            //Vector3 newCameraPosition = cameraPosition + direction * cameraMovingSpeed;
-            Vector3 newCameraPosition = new Vector3(
-                x: (cameraPosition.x + direction.x), // * cameraMovingSpeed,
-                y: cameraPosition.y,
-                z: (cameraPosition.z + direction.y));// * cameraMovingSpeed);
-                
-            //newCameraPosition = new Vector3(Mathf.Clamp(newCameraPosition.x, minX, maxX), newCameraPosition.y, Mathf.Clamp(newCameraPosition.z, minZ, maxZ));
-            _camera.transform.position = Vector3.Lerp(cameraPosition, newCameraPosition, lerpCoefficient);
+            var cameraTransform = _camera.transform;
+            Vector3 yDirection = new Vector3(cameraTransform.forward.x, 0, cameraTransform.forward.z).normalized;
+            Vector3 xDirection = new Vector3(cameraTransform.right.x, 0, cameraTransform.right.z).normalized;
+
+            float fieldOfViewCoeff = _camera.fieldOfView / 100f;
+            
+            var newPosition = cameraTransform.position;
+            newPosition +=
+                yDirection * direction.y * Time.deltaTime * movingSpeed * fieldOfViewCoeff
+                + xDirection * direction.x * Time.deltaTime * movingSpeed * fieldOfViewCoeff; 
+
+            newPosition = ClampPosition(newPosition);
+            
+            cameraTransform.position = newPosition;
         }
 
+        private Vector3 ClampPosition(Vector3 position)
+        {
+            Vector3 newPosition = new Vector3(
+                Mathf.Clamp(position.x, minXCameraPosition, maxXCameraPosition), 
+                position.y, 
+                Mathf.Clamp(position.z, minZCameraPosition, maxZCameraPosition));
+            
+            return newPosition;
+        }
+        
         public void Rotate(float angle)
         {
+            angle = angle * rotatingSpeed;
+            if (angle != 0)
             {
-                float rotatingValue = angle * Time.deltaTime * cameraRotatingSpeed;
-                if (rotatingValue != 0)
-                {
-                    _camera.transform.Rotate(Vector3.forward, rotatingValue);
-                }
+                Vector3 cameraViewPoint = WorldPoints.GetCameraCenterPositionOnWorldObject();
+                _camera.transform.RotateAround(cameraViewPoint, Vector3.up, angle);
             }
         }
 
         public void Scale(float scaleValue)
         {
-            float newFieldOfView = _camera.fieldOfView - scaleValue * cameraScalingSpeed;
-            //newFieldOfView = Mathf.Clamp(newFieldOfView, minMainCameraFieldOfView, maxMainCameraFieldOfView);
+            float newFieldOfView = _camera.fieldOfView - scaleValue * scalingSpeed;
+            newFieldOfView = Mathf.Clamp(newFieldOfView, minFieldOfView, maxFieldOfView);
 
             _camera.fieldOfView = newFieldOfView;
         }

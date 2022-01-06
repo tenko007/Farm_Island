@@ -2,7 +2,7 @@
 
 namespace InputSystem
 {
-    public class DesktopTouchInput : IInputSystem
+    public class DesktopInput : IInputSystem
     {
         public bool ClickStart()
         {

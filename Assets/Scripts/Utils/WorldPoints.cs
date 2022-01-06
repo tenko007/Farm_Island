@@ -87,13 +87,13 @@ namespace Utils
 
         private static Ray GetRayToPoint(Vector3 point)
         {
-            return Camera.current.ScreenPointToRay(point);
+            return Camera.main.ScreenPointToRay(point);
         }
 
         private static Ray GetRayToCenterOfCamera()
         {
-            var current = Camera.current;
-            Vector3 point = new Vector3(current.pixelWidth/2f, current.pixelHeight/2f, 0);
+            var camera = Camera.main;
+            Vector3 point = new Vector3(camera.pixelWidth/2f, camera.pixelHeight/2f, 0);
             return GetRayToPoint(point);
         }
 
@@ -158,12 +158,12 @@ namespace Utils
 
         public static Vector2 GetObjectPositionOnScreen(GameObject obj)
         {
-            return Camera.current.WorldToScreenPoint(obj.transform.position);
+            return Camera.main.WorldToScreenPoint(obj.transform.position);
         }
 
         public static Vector2 GetPointPositionOnScreen(Vector3 point)
         {
-            return Camera.current.WorldToScreenPoint(point);
+            return Camera.main.WorldToScreenPoint(point);
         }
 
     }
