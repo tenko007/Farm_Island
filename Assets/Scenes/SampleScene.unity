@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 735107038}
   - component: {fileID: 735107037}
   m_Layer: 0
-  m_Name: GameManagers
+  m_Name: GameManagers (TEMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -806,13 +806,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 963194227}
-  cameraMovingSpeed: 7
-  cameraScalingSpeed: 12
-  cameraRotatingSpeed: 5
-  startMainCameraFieldOfView: 10
-  maxMainCameraFieldOfView: 20
-  minMainCameraFieldOfView: 2
-  lerpCoefficient: 0.01
+  movingSpeed: 3
+  scalingSpeed: 60
+  rotatingSpeed: 0.05
+  minXCameraPosition: -3
+  maxXCameraPosition: 3
+  minZCameraPosition: -3
+  maxZCameraPosition: 3
+  minFieldOfView: 30
+  maxFieldOfView: 100
 --- !u!1 &1594233386
 GameObject:
   m_ObjectHideFlags: 0

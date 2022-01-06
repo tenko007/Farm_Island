@@ -20,9 +20,8 @@ namespace SceneStateSystem
         private void Start()
         {
             PushHandler(new DummySceneState());
-            PushHandler(new InputSceneState());
-            PushHandler(new RotateSceneState());
-            PushHandler(new ScaleSceneState());
+            PushHandler(new MoveSceneState());
+            PushHandler(new RotateAndScaleSceneState());
         }
 
         public void PushHandler(ISceneState handler, bool isTarget = false)
