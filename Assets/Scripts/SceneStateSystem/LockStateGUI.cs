@@ -4,11 +4,11 @@ namespace SceneStateSystem
 {
     public class LockStateGUI : MonoBehaviour
     {
-        private SceneStateManager _sceneStateManager;
+        private InputStateManager inputStateManager;
 
         private void Awake()
         {
-            _sceneStateManager = GameManager.Instance.SceneStateManager;
+            inputStateManager = GameManager.Instance.inputStateManager;
         }
         
 #if UNITY_EDITOR
@@ -16,11 +16,11 @@ namespace SceneStateSystem
         {
             if (GUILayout.Button("LOCK"))
             {
-                _sceneStateManager.LockInput();
+                inputStateManager.LockInput();
             }
             else if (GUILayout.Button("UNLOCK"))
             {
-                _sceneStateManager.UnlockInput();
+                inputStateManager.UnlockInput();
             }
         }
 #endif

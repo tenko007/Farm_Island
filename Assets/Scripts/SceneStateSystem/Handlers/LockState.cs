@@ -2,11 +2,11 @@
 
 namespace SceneStateSystem.Handlers
 {
-    public class LockSceneState : ISceneState
+    public class LockState : IState
     {
         public bool RequestTarget { get; }
 
-        public LockSceneState()
+        public LockState()
         {
             this.RequestTarget = true;
         }

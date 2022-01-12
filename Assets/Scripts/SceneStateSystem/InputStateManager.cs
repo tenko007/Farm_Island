@@ -4,27 +4,27 @@ using UnityEngine;
 
 namespace SceneStateSystem
 {
-    public class SceneStateManager : MonoBehaviour, ISceneStateManager
+    public class InputStateManager : MonoBehaviour, IStateManager
     {
-        private readonly List<ISceneState> _handlers;
-        private ISceneState _target;
-        private ISceneState _locker;
+        private readonly List<IState> _handlers;
+        private IState _target;
+        private IState _locker;
         private bool _targetMode;
 
-        public SceneStateManager()
+        public InputStateManager()
         {
-            this._handlers = new List<ISceneState>();
-            this._locker = new LockSceneState();
+            this._handlers = new List<IState>();
+            this._locker = new LockState();
         }
 
         private void Start()
         {
-            PushHandler(new DummySceneState());
-            PushHandler(new MoveSceneState());
-            PushHandler(new RotateAndScaleSceneState());
+            PushHandler(new IdleState());
+            PushHandler(new MoveState());
+            PushHandler(new RotateAndScaleState());
         }
 
-        public void PushHandler(ISceneState handler, bool isTarget = false)
+        public void PushHandler(IState handler, bool isTarget = false)
         {
             if (isTarget)
             {
@@ -38,7 +38,7 @@ namespace SceneStateSystem
             }
         }
 
-        public void PopHandler(ISceneState handler)
+        public void PopHandler(IState handler)
         {
             this._handlers.Remove(handler);
             if (this._target == handler)

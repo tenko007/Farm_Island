@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerMovement: {fileID: 1395771378}
-  SceneStateManager: {fileID: 1021637766}
+  inputStateManager: {fileID: 1021637766}
 --- !u!4 &735107038
 Transform:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 1021637765}
   - component: {fileID: 1021637766}
   m_Layer: 0
-  m_Name: SceneStateManager
+  m_Name: InputStateManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

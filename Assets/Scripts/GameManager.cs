@@ -8,16 +8,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public PlayerMovement PlayerMovement;
-    public SceneStateManager SceneStateManager;
+    public InputStateManager inputStateManager;
     public IInputSystem InputSystem;
 
     private void Awake()
     {
         Instance = this;
-        SetInputSestem();
+        SetInputSystem();
     }
 
-    private void SetInputSestem()
+    private void SetInputSystem()
     {
 #if (UNITY_ANDROID || UNITY_IOS) && (!UNITY_EDITOR)
         InputSystem = new MobileTouchInput();

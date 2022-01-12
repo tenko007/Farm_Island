@@ -31,12 +31,12 @@ namespace PlayerMovementSystem
             Vector3 yDirection = new Vector3(cameraTransform.forward.x, 0, cameraTransform.forward.z).normalized;
             Vector3 xDirection = new Vector3(cameraTransform.right.x, 0, cameraTransform.right.z).normalized;
 
-            float fieldOfViewCoeff = _camera.fieldOfView / 100f;
+            float fieldOfViewSpeedCoeff = _camera.fieldOfView / 100f;
             
             var newPosition = cameraTransform.position;
             newPosition +=
-                yDirection * direction.y * Time.deltaTime * movingSpeed * fieldOfViewCoeff
-                + xDirection * direction.x * Time.deltaTime * movingSpeed * fieldOfViewCoeff; 
+                yDirection * direction.y * Time.deltaTime * movingSpeed * fieldOfViewSpeedCoeff + 
+                xDirection * direction.x * Time.deltaTime * movingSpeed * fieldOfViewSpeedCoeff; 
 
             newPosition = ClampPosition(newPosition);
             
@@ -46,9 +46,9 @@ namespace PlayerMovementSystem
         private Vector3 ClampPosition(Vector3 position)
         {
             Vector3 newPosition = new Vector3(
-                Mathf.Clamp(position.x, minXCameraPosition, maxXCameraPosition), 
-                position.y, 
-                Mathf.Clamp(position.z, minZCameraPosition, maxZCameraPosition));
+                x: Mathf.Clamp(position.x, minXCameraPosition, maxXCameraPosition), 
+                y: position.y, 
+                z: Mathf.Clamp(position.z, minZCameraPosition, maxZCameraPosition));
             
             return newPosition;
         }

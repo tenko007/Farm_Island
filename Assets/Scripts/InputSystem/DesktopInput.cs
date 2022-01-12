@@ -25,9 +25,7 @@ namespace InputSystem
 
         public float GetScalingValue()
         {
-            //if (Input.GetAxis("Mouse ScrollWheel") != 0)
-                return Input.GetAxis("Mouse ScrollWheel");
-            return 0f;
+            return Input.GetAxis("Mouse ScrollWheel");
         }
 
         public bool IsRotating()

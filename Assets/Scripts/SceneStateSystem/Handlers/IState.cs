@@ -1,7 +1,7 @@
 ﻿
 namespace SceneStateSystem.Handlers
 {
-    public interface ISceneState
+    public interface IState
     {
         bool RequestTarget { get; }
 

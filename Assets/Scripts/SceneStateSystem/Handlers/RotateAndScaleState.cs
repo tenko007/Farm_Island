@@ -4,38 +4,30 @@ using UnityEngine;
 
 namespace SceneStateSystem.Handlers
 {
-    public sealed class MoveSceneState : ISceneState
+    public sealed class RotateAndScaleState : IState
     {
         private IInputSystem _inputSystem = GameManager.Instance.InputSystem;
         private IPlayerMovement _playerMovement = GameManager.Instance.PlayerMovement;
-        private Vector3 _prevMousePosition;
 
         public bool RequestTarget { get; private set; }
         public void OnIdleUpdate()
         {
-            if (_inputSystem.IsDragging())
+            if (_inputSystem.IsRotating() || _inputSystem.IsScaling())
             {
-                _prevMousePosition = _inputSystem.GetMousePosition();
                 this.RequestTarget = true;
             }
         }
-
         public void OnTargetUpdate()
         {
-            if (!_inputSystem.IsDragging())
+            if (!_inputSystem.IsRotating() && !_inputSystem.IsScaling())
             {
                 RequestTarget = false;
             }
             else
-            {
-                Debug.Log($"Mouse position = {_inputSystem.GetMousePosition().ToString()}");
-                
-                Vector3 currentMousePosition = _inputSystem.GetMousePosition();
-                _playerMovement.Move(_prevMousePosition - currentMousePosition);
-
-                _prevMousePosition = currentMousePosition;
+            {                
+                _playerMovement.Rotate((_inputSystem.GetRotatingValue()));
+                _playerMovement.Scale((_inputSystem.GetScalingValue()));
             }
         }
-        
     }
 }

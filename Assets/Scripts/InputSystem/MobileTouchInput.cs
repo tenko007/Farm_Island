@@ -25,8 +25,7 @@ namespace InputSystem
 
         public bool IsDragging()
         {
-            //return ClickByPhase(TouchPhase.Moved);
-            return (Input.touchCount == 1);
+            return (Input.touchCount == 1 && ClickByPhase(TouchPhase.Moved));
         }
         public bool IsScaling()
         {
@@ -94,7 +93,6 @@ namespace InputSystem
         public Vector3 GetMousePosition()
         {
             if (Input.touchCount > 0)
-                //return Input.GetTouch(Input.touchCount - 1).position;
                 return Input.GetTouch(0).position;
             return Vector3.zero;
         }
