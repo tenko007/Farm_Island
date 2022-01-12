@@ -1,7 +1,5 @@
-﻿using System.Runtime.CompilerServices;
-using InputSystem;
+﻿using InputSystem;
 using UnityEngine;
-using Utils.Services;
 
 namespace Utils
 {

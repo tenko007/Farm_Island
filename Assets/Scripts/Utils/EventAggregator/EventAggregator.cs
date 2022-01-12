@@ -2,22 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Utils.EventAggregator
+namespace Utils.EventSystem
 {
     public class EventAggregator : IEventAggregator
     {
-        public IDictionary<Type, List<Delegate>> EventHandlers { get; set; }
-
-        public EventAggregator()
-        {
-            this.EventHandlers = new Dictionary<Type, List<Delegate>>();
-        }
-
-        public void Publish<T>(T eventData) where T : EventArgs
-        {
-            if (!EventHandlers.ContainsKey(typeof(T)))
-                EventHandlers.Add(typeof(T), new List<Delegate>());
-        }
+        private IDictionary<Type, List<Delegate>> EventHandlers = new Dictionary<Type, List<Delegate>>();
 
         public void Subscribe<T>(Action<T> eventHandler) where T : EventArgs
         {
@@ -36,8 +25,8 @@ namespace Utils.EventAggregator
                 throw new NullReferenceException();
 
             if (EventHandlers.ContainsKey(typeof(T)))
-                //if (EventHandlers[typeof(T)].Contains(eventHandler)) // TODO Do i need this line?
-                EventHandlers[typeof(T)].Remove(eventHandler);
+                if (EventHandlers[typeof(T)].Contains(eventHandler)) // TODO Do i need this line?
+                    EventHandlers[typeof(T)].Remove(eventHandler);
         }
 
         public void UnsubscribeAll<T>() where T : EventArgs
