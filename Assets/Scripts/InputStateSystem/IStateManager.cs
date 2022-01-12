@@ -1,8 +1,8 @@
-﻿using SceneStateSystem.Handlers;
+﻿using Utils.Services;
 
-namespace SceneStateSystem
+namespace InputStateSystem
 {
-    public interface IStateManager
+    public interface IStateManager : IService
     {
         void PushHandler(IState handler, bool isTarget = false);
 

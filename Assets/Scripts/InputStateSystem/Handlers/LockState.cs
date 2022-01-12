@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 
-namespace SceneStateSystem.Handlers
+namespace InputStateSystem
 {
-    public sealed class IdleState : IState
+    public class LockState : IState
     {
         public bool RequestTarget { get; }
+
+        public LockState()
+        {
+            this.RequestTarget = true;
+        }
         public void OnIdleUpdate()
         {
-            Debug.Log("Idle");
+
         }
 
         public void OnTargetUpdate()
         {
-            
+            Debug.Log("Lock");
         }
     }
 }

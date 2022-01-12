@@ -1,15 +1,21 @@
 ﻿using InputSystem;
 using PlayerMovementSystem;
 using UnityEngine;
+using Utils.Services;
 
-namespace SceneStateSystem.Handlers
+namespace InputStateSystem
 {
     public sealed class MoveState : IState
     {
-        private IInputSystem _inputSystem = GameManager.Instance.InputSystem;
-        private IPlayerMovement _playerMovement = GameManager.Instance.PlayerMovement;
+        private IInputSystem _inputSystem;
+        private IPlayerMovement _playerMovement;
         private Vector3 _prevMousePosition;
 
+        public MoveState(IInputSystem inputSystem, IPlayerMovement playerMovement)
+        {
+            this._inputSystem = inputSystem;
+            this._playerMovement = playerMovement;
+        }
         public bool RequestTarget { get; private set; }
         public void OnIdleUpdate()
         {

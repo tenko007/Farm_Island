@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
-using SceneStateSystem.Handlers;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections.Generic;
 
-namespace SceneStateSystem
+using InputSystem;
+using PlayerMovementSystem;
+using Utils.Services;
+
+namespace InputStateSystem
 {
     public class InputStateManager : MonoBehaviour, IStateManager
     {
@@ -19,9 +22,11 @@ namespace SceneStateSystem
 
         private void Start()
         {
+            IInputSystem inputSystem = ServiceLocator.GetService<IInputSystem>();
+            IPlayerMovement playerMovement = ServiceLocator.GetService<IPlayerMovement>();
             PushHandler(new IdleState());
-            PushHandler(new MoveState());
-            PushHandler(new RotateAndScaleState());
+            PushHandler(new MoveState(inputSystem, playerMovement));
+            PushHandler(new RotateAndScaleState(inputSystem, playerMovement));
         }
 
         public void PushHandler(IState handler, bool isTarget = false)

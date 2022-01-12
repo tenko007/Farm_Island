@@ -1,14 +1,19 @@
 ﻿using InputSystem;
 using PlayerMovementSystem;
-using UnityEngine;
+using Utils.Services;
 
-namespace SceneStateSystem.Handlers
+namespace InputStateSystem
 {
     public sealed class RotateAndScaleState : IState
     {
-        private IInputSystem _inputSystem = GameManager.Instance.InputSystem;
-        private IPlayerMovement _playerMovement = GameManager.Instance.PlayerMovement;
+        private IInputSystem _inputSystem;
+        private IPlayerMovement _playerMovement;
 
+        public RotateAndScaleState(IInputSystem inputSystem, IPlayerMovement playerMovement)
+        {
+            this._inputSystem = inputSystem;
+            this._playerMovement = playerMovement;
+        }
         public bool RequestTarget { get; private set; }
         public void OnIdleUpdate()
         {

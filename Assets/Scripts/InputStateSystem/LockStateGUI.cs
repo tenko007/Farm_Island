@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
+using Utils.Services;
 
-namespace SceneStateSystem
+namespace InputStateSystem
 {
     public class LockStateGUI : MonoBehaviour
     {
         private InputStateManager inputStateManager;
 
-        private void Awake()
+        private void Start()
         {
-            inputStateManager = GameManager.Instance.inputStateManager;
+            inputStateManager = ServiceLocator.GetService<InputStateManager>();
         }
         
 #if UNITY_EDITOR

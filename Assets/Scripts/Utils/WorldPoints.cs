@@ -1,12 +1,19 @@
-﻿using InputSystem;
+﻿using System.Runtime.CompilerServices;
+using InputSystem;
 using UnityEngine;
+using Utils.Services;
 
 namespace Utils
 {
     public static class WorldPoints
     {
-        private static IInputSystem _inputSystem = GameManager.Instance.InputSystem;
+        private static IInputSystem _inputSystem;
         private static float _maxRayDistance = 1000f;
+
+        public static void SetInputSystem(IInputSystem inputSystem)
+        {
+            _inputSystem = inputSystem;
+        }
 
         public static void SetMaxRayDistance(float maxRayDistance)
         {
@@ -148,8 +155,6 @@ namespace Utils
 
             return Vector3.zero;
         }
-
-        ////////////////////////////////////////////////////////////////
 
         public static Vector3 GetMousePositionOnScreen()
         {

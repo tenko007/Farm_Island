@@ -1,5 +1,5 @@
 ﻿
-namespace SceneStateSystem.Handlers
+namespace InputStateSystem
 {
     public interface IState
     {

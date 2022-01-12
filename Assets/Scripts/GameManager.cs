@@ -1,28 +1,42 @@
 ﻿using System;
+using InputStateSystem;
 using InputSystem;
 using PlayerMovementSystem;
-using SceneStateSystem;
 using UnityEngine;
+using Utils;
+using Utils.Services;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public PlayerMovement PlayerMovement;
-    public InputStateManager inputStateManager;
-    public IInputSystem InputSystem;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private InputStateManager inputStateManager;
+    private IInputSystem inputSystem;
 
     private void Awake()
     {
-        Instance = this;
-        SetInputSystem();
+        ChooseInputSystem();
+        RegisterServices();
+        SetupUtils();
     }
-
-    private void SetInputSystem()
+    
+    private void ChooseInputSystem()
     {
 #if (UNITY_ANDROID || UNITY_IOS) && (!UNITY_EDITOR)
         InputSystem = new MobileTouchInput();
 #else
-        InputSystem = new DesktopInput();
+        inputSystem = new DesktopInput();
 #endif
+    }
+    
+    private void RegisterServices()
+    {
+        ServiceLocator.RegisterService<IInputSystem>(inputSystem);
+        ServiceLocator.RegisterService<IPlayerMovement>(playerMovement);
+        ServiceLocator.RegisterService<InputStateManager>(inputStateManager);
+    }
+    
+    private void SetupUtils()
+    {
+        WorldPoints.SetInputSystem(inputSystem);
     }
 }

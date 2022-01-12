@@ -1,9 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using Utils.Services;
 
 namespace InputSystem
 {
-    public interface IInputSystem
+    public interface IInputSystem : IService
     {
         bool ClickStart();
         bool ClickEnd();

@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 735107038}
   - component: {fileID: 735107037}
   m_Layer: 0
-  m_Name: GameManagers (TEMP)
+  m_Name: GameManagers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969b844d26b743bba8ee8ce482d92744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMovement: {fileID: 1395771378}
+  playerMovement: {fileID: 1395771378}
   inputStateManager: {fileID: 1021637766}
 --- !u!4 &735107038
 Transform:
