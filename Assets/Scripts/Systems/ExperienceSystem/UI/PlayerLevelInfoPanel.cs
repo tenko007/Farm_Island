@@ -6,7 +6,7 @@ using Utils.Services;
 
 namespace ExperienceSystem.UI
 {
-    public class PlayerExperienceUIController : MonoBehaviour
+    public class PlayerLevelInfoPanel : MonoBehaviour
     {
         [SerializeField] private Image ExperienceLine;
         [SerializeField] private Text ExperienceText;

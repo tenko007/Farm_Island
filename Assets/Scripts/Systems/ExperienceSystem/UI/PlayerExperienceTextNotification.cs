@@ -5,7 +5,7 @@ using Utils.EventSystem;
 
 namespace ExperienceSystem.UI
 {
-    public class PlayerExperienceNotification : MonoBehaviour
+    public class PlayerExperienceTextNotification : MonoBehaviour
     {
         [SerializeField] private Text experienceTextNotification;
 
