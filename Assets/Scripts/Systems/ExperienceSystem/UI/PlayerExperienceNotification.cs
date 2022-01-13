@@ -19,6 +19,7 @@ namespace ExperienceSystem.UI
             GameObject newText = Instantiate(experienceTextNotification.gameObject, transform);
             newText.GetComponent<Text>().text = $"+ {eventData.expCount.ToString()} EXP";
             newText.SetActive(true);
+            Destroy(newText, 2f);
         }
     }
 }

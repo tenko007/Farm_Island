@@ -19,11 +19,8 @@ namespace ExperienceSystem.UI
         
         private void PlayAddExpSound(PlayerGotExperienceEvent eventData)
         {
-            if (!addExpSource.isPlaying)
-            {
-                addExpSource.clip = addExpSound;
-                addExpSource.Play();
-            }
+            addExpSource.clip = addExpSound;
+            addExpSource.Play();
         }
         private void PlayNewLevelSound(PlayerGotNewLevelEvent eventData)
         {
