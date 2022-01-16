@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Utils.EventSystem;
 
 namespace ExperienceSystem.UI
 {
@@ -9,7 +10,7 @@ namespace ExperienceSystem.UI
 
         private void Start()
         {
-            Utils.EventSystem.Events.Subscribe<PlayerGotExperienceEvent>(ShowTextNotification);
+            Events.Subscribe<PlayerGotExperienceEvent>(ShowTextNotification);
         }
 
         private void ShowTextNotification(PlayerGotExperienceEvent eventData)

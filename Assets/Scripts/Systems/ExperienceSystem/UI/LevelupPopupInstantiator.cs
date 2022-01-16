@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils.EventSystem;
 
 namespace ExperienceSystem.UI
 {
@@ -8,7 +9,7 @@ namespace ExperienceSystem.UI
         
         private void Start()
         {
-            Utils.EventSystem.Events.Subscribe<PlayerGotNewLevelEvent>(Show);
+            Events.Subscribe<PlayerGotNewLevelEvent>(Show);
         }
 
         private void Show(PlayerGotNewLevelEvent eventData)

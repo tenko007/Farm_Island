@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ExperienceSystem.Events
+namespace ExperienceSystem
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/ExperienceForLevels")]
     public class ExperienceForLevels : ScriptableObject

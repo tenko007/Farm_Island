@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils.EventSystem;
 
 namespace ExperienceSystem.UI
 {
@@ -11,8 +12,8 @@ namespace ExperienceSystem.UI
         [SerializeField] private AudioSource addExpSource;
         private void Start()
         {
-            Utils.EventSystem.Events.Subscribe<PlayerGotExperienceEvent>(PlayAddExpSound);
-            Utils.EventSystem.Events.Subscribe<PlayerGotNewLevelEvent>(PlayNewLevelSound);
+            Events.Subscribe<PlayerGotExperienceEvent>(PlayAddExpSound);
+            Events.Subscribe<PlayerGotNewLevelEvent>(PlayNewLevelSound);
         }
         
         private void PlayAddExpSound(PlayerGotExperienceEvent eventData)

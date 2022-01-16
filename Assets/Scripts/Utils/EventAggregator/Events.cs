@@ -8,7 +8,7 @@ namespace Utils.EventSystem
 
         public static void SetEventAggregator(IEventAggregator eventAggregator)
         {
-            Events._eventAggregator = eventAggregator;
+            _eventAggregator = eventAggregator;
         }
         
         public static void Subscribe<T>(Action<T> eventHandler) where T : EventArgs

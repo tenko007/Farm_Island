@@ -1,4 +1,4 @@
-﻿using ExperienceSystem.Events;
+﻿using Utils.EventSystem;
 
 namespace ExperienceSystem
 {
@@ -23,7 +23,7 @@ namespace ExperienceSystem
         public void AddExperience(int count)
         {
             Experience += count;
-            Utils.EventSystem.Events.Invoke(new PlayerGotExperienceEvent(count, Experience, ExperienceToNextLevel));
+            Events.Invoke(new PlayerGotExperienceEvent(count, Experience, ExperienceToNextLevel));
             CheckForLevelUp();
         }
         
@@ -34,7 +34,7 @@ namespace ExperienceSystem
 
             Level++;
             ExperienceToNextLevel = ExperienceForLevels.List[Level - 1];
-            Utils.EventSystem.Events.Invoke(new PlayerGotNewLevelEvent(Level, Experience, ExperienceToNextLevel));
+            Events.Invoke(new PlayerGotNewLevelEvent(Level, Experience, ExperienceToNextLevel));
         }
         
         private void CheckForLevelUp()

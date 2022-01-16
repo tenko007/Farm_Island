@@ -1,5 +1,4 @@
 ﻿using ExperienceSystem;
-using ExperienceSystem.Events;
 using InputStateSystem;
 using InputSystem;
 using PlayerMovementSystem;
