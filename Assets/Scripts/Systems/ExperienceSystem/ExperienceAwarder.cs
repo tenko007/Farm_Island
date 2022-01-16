@@ -1,5 +1,4 @@
-﻿using QuestSystem.Events;
-using Utils.EventSystem;
+﻿using QuestSystem;
 
 namespace ExperienceSystem
 {
@@ -15,7 +14,7 @@ namespace ExperienceSystem
 
         public void SubscribeEvents()
         {
-            EventSystem.Subscribe<QuestCompletedEvent>(AddExperience);
+            Utils.EventSystem.Events.Subscribe<QuestCompletedEvent>(AddExperience);
             // more other ...
         }
 

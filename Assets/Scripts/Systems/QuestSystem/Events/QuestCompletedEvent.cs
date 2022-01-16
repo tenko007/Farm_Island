@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QuestSystem.Events
+namespace QuestSystem
 {
     public class QuestCompletedEvent : EventArgs
     {

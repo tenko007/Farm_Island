@@ -1,6 +1,4 @@
-﻿using ExperienceSystem.Events;
-using UnityEngine;
-using Utils.EventSystem;
+﻿using UnityEngine;
 
 namespace ExperienceSystem.UI
 {
@@ -10,7 +8,7 @@ namespace ExperienceSystem.UI
         
         private void Start()
         {
-            EventSystem.Subscribe<PlayerGotNewLevelEvent>(Show);
+            Utils.EventSystem.Events.Subscribe<PlayerGotNewLevelEvent>(Show);
         }
 
         private void Show(PlayerGotNewLevelEvent eventData)

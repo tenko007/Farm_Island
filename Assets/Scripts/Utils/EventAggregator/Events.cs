@@ -2,13 +2,13 @@
 
 namespace Utils.EventSystem
 {
-    public static class EventSystem
+    public static class Events
     {
         private static IEventAggregator _eventAggregator;
 
         public static void SetEventAggregator(IEventAggregator eventAggregator)
         {
-            EventSystem._eventAggregator = eventAggregator;
+            Events._eventAggregator = eventAggregator;
         }
         
         public static void Subscribe<T>(Action<T> eventHandler) where T : EventArgs

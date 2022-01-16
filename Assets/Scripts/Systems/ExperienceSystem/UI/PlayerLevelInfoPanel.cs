@@ -1,7 +1,5 @@
-﻿using ExperienceSystem.Events;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using Utils.EventSystem;
 using Utils.Services;
 
 namespace ExperienceSystem.UI
@@ -13,8 +11,8 @@ namespace ExperienceSystem.UI
         [SerializeField] private Text LevelText;
         private void Start()
         {
-            EventSystem.Subscribe<PlayerGotNewLevelEvent>(UpdateLevel);
-            EventSystem.Subscribe<PlayerGotExperienceEvent>(UpdateExperience);
+            Utils.EventSystem.Events.Subscribe<PlayerGotNewLevelEvent>(UpdateLevel);
+            Utils.EventSystem.Events.Subscribe<PlayerGotExperienceEvent>(UpdateExperience);
             InitPanel();
         }
         

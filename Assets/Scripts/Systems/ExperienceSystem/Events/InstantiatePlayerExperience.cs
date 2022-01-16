@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExperienceSystem.Events
+namespace ExperienceSystem
 {
     public class PlayerExperienceInstantiatedEvent : EventArgs
     {

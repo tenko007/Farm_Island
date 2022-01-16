@@ -21,7 +21,7 @@ public class GameBootstrap : MonoBehaviour
     private void Awake()
     {
         Services.SetServiceLocator(new ServiceLocator());
-        EventSystem.SetEventAggregator(new EventAggregator());
+        Events.SetEventAggregator(new EventAggregator());
 
         SetupVariables();
         RegisterServices();
