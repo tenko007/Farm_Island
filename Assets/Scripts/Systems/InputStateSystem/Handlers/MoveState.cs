@@ -1,8 +1,10 @@
-﻿using InputSystem;
+﻿using InputStateSystem;
+using InputSystem;
 using PlayerMovementSystem;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-namespace InputStateSystem
+namespace Systems.InputStateSystem.Handlers
 {
     public sealed class MoveState : IState
     {
@@ -18,7 +20,7 @@ namespace InputStateSystem
         public bool RequestTarget { get; private set; }
         public void OnIdleUpdate()
         {
-            if (_inputSystem.IsDragging())
+            if (_inputSystem.IsDragging() && !EventSystem.current.IsPointerOverGameObject())
             {
                 _prevMousePosition = _inputSystem.GetMousePosition();
                 this.RequestTarget = true;
