@@ -107,6 +107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1429310150736261003}
     m_Modifications:
+    - target: {fileID: 1558097167976868448, guid: 3a1d50c1867e69244a67c4b331f6e55c,
+        type: 3}
+      propertyPath: experienceTextNotification
+      value: 
+      objectReference: {fileID: 1429310149326146091}
     - target: {fileID: 1558097167976868449, guid: 3a1d50c1867e69244a67c4b331f6e55c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -225,6 +230,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 453340859998412897}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1429310149326146091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1558097166756620874, guid: 3a1d50c1867e69244a67c4b331f6e55c,
+    type: 3}
+  m_PrefabInstance: {fileID: 453340859998412897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8490612323552214808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -342,6 +359,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7350253847921069786, guid: 3b7cdc52648c8ae4091ba193e46dfa2f,
+        type: 3}
+      propertyPath: LevelupPopupPrefab
+      value: 
+      objectReference: {fileID: 8923115819810734334, guid: 5e106308a8942dd499da171dbd765989,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b7cdc52648c8ae4091ba193e46dfa2f, type: 3}
 --- !u!224 &1429310149665403341 stripped
