@@ -1,0 +1,359 @@
+Using pre-set license
+Built from '2021.2/staging' branch; Version is '2021.2.8f1 (d0e5f0a7b06a) revision 13690352'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.17763) 64bit Professional' Language: 'ru' Physical Memory: 16326 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+E:\Unity\2021.2.8f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+H:/GitHub/Farm_Island
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+57427
+Successfully changed project path to: H:/GitHub/Farm_Island
+H:/GitHub/Farm_Island
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 56.26 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.2.8f1 (d0e5f0a7b06a)
+[Subsystems] Discovering subsystems at path E:/Unity/2021.2.8f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path H:/GitHub/Farm_Island/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f08)
+    Vendor:   NVIDIA
+    VRAM:     5980 MB
+    Driver:   27.21.14.6627
+Initialize mono
+Mono path[0] = 'E:/Unity/2021.2.8f1/Editor/Data/Managed'
+Mono path[1] = 'E:/Unity/2021.2.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'E:/Unity/2021.2.8f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56020
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: E:/Unity/2021.2.8f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: E:/Unity/2021.2.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.004017 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 56.28 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.638 seconds
+Domain Reload Profiling:
+	ReloadAssembly (638ms)
+		BeginReloadAssembly (79ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (475ms)
+			LoadAssemblies (78ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (128ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (264ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (16ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (56ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (135ms)
+				ProcessInitializeOnLoadMethodAttributes (54ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.009288 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 60.89 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.778 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1779ms)
+		BeginReloadAssembly (130ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (27ms)
+		EndReloadAssembly (1507ms)
+			LoadAssemblies (99ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (253ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (62ms)
+			SetupLoadedEditorAssemblies (1046ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (61ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (808ms)
+				ProcessInitializeOnLoadMethodAttributes (84ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3331 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (0.7 MB). Loaded Objects now: 3794.
+Memory consumption went from 154.2 MB to 153.5 MB.
+Total: 5.125300 ms (FindLiveObjects: 0.344400 ms CreateObjectMapping: 0.200500 ms MarkObjects: 4.173100 ms  DeleteObjects: 0.404700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 15651.815502 seconds.
+  path: Assets/Fonts/BalooBhai-Regular.ttf
+  artifactKey: Guid(b7e12e4aa92bfca4fb771513db2d36a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/BalooBhai-Regular.ttf using Guid(b7e12e4aa92bfca4fb771513db2d36a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0bf825286d264b289b7b0e59c3df1c3') in 0.370416 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Fonts/Vidaloka-Regular.ttf
+  artifactKey: Guid(a280a728395d23948a9b6a896cc98d4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Vidaloka-Regular.ttf using Guid(a280a728395d23948a9b6a896cc98d4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43905cea7a810f2e1012c02a71674d68') in 0.022508 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000130 seconds.
+  path: Assets/Fonts/Bitter-Italic.ttf
+  artifactKey: Guid(52f6424e630a9ef4ba5eef9e3005c91d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Bitter-Italic.ttf using Guid(52f6424e630a9ef4ba5eef9e3005c91d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95388504601307e1c14e1c99ef05470b') in 0.023967 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/Fonts/Amarante-Regular.ttf
+  artifactKey: Guid(d72b45eb601f2794b9caa92123745a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Amarante-Regular.ttf using Guid(d72b45eb601f2794b9caa92123745a54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd83271353e371a79c93571760e773716') in 0.021566 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Fonts/Orbitron-VariableFont_wght.ttf
+  artifactKey: Guid(237b01552f1a20d4a89de3e697e7c38a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Orbitron-VariableFont_wght.ttf using Guid(237b01552f1a20d4a89de3e697e7c38a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45d8e0a6abff3772305406adccfb2637') in 0.029894 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Fonts/Changa-VariableFont_wght.ttf
+  artifactKey: Guid(493b8fcfd03dc2b4689bab7474e97585) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Changa-VariableFont_wght.ttf using Guid(493b8fcfd03dc2b4689bab7474e97585) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb8f21614fb4c6faf345710cff9803b3') in 0.035700 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Fonts/Bitter-Bold.ttf
+  artifactKey: Guid(6539919ba20781d42a56f46c5c1c1265) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Bitter-Bold.ttf using Guid(6539919ba20781d42a56f46c5c1c1265) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '017b3e8c8ee03aa9e41587e17d988768') in 0.026253 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Fonts/ConcertOne-Regular.ttf
+  artifactKey: Guid(843f1f6d53da8e54899dac86aa7467fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/ConcertOne-Regular.ttf using Guid(843f1f6d53da8e54899dac86aa7467fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd35628db5d7432c5ae98ec2511427bf7') in 0.027129 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Fonts/Bitter-Regular.ttf
+  artifactKey: Guid(b5ff27b34c128e84aabf8c0795cac94a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/Bitter-Regular.ttf using Guid(b5ff27b34c128e84aabf8c0795cac94a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c7bcd74f426a4a037286c71b923057c') in 0.032338 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Materials/Grass.mat
+  artifactKey: Guid(05fb917e69eb1f54f8925aea266eeb3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Grass.mat using Guid(05fb917e69eb1f54f8925aea266eeb3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e438bed3f11e7fa3402b91bd9ca16c8e') in 0.037493 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Fonts/FredokaOne-Regular.ttf
+  artifactKey: Guid(420bc403ae04d2a44aed1514514dcbe2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/FredokaOne-Regular.ttf using Guid(420bc403ae04d2a44aed1514514dcbe2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e330c27a0b9be8a30569c2f509b0832') in 0.021155 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Fonts/GloriaHallelujah-Regular.ttf
+  artifactKey: Guid(beeca25c5cfe13343ad870e37c99005c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/GloriaHallelujah-Regular.ttf using Guid(beeca25c5cfe13343ad870e37c99005c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e9614e3a7b51c2ab19873b3c7ed2f40') in 0.018790 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 18.987586 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Models/Barrel.FBX
+  artifactKey: Guid(1660c7ca8648e464a9b6f3b6db92f1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Models/Barrel.FBX using Guid(1660c7ca8648e464a9b6f3b6db92f1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef1421d1837930b69f5de35b48566004') in 0.087503 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.080400 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Models/Materials
+  artifactKey: Guid(b0eb2275ed5806440872a7c0e50209e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Models/Materials using Guid(b0eb2275ed5806440872a7c0e50209e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79902ddfd20bb7da7c650b7d3812df51') in 0.003282 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.113267 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Models/Materials/Baker_house_snow.mat
+  artifactKey: Guid(edbb61ce7eb50e94cba6fa630e32a58f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Models/Materials/Baker_house_snow.mat using Guid(edbb61ce7eb50e94cba6fa630e32a58f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c26cb95814963fac2b3367dc9dab4901') in 0.012420 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 84.513829 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Baker House.prefab
+  artifactKey: Guid(203e953de0dad744083453eef65a4a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Baker House.prefab using Guid(203e953de0dad744083453eef65a4a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51183c9c39e95bd487d2d4bd1de92073') in 0.024528 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Baker_house_raw.prefab
+  artifactKey: Guid(1bbb91c8d96cb2446a07151ce95d1f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Baker_house_raw.prefab using Guid(1bbb91c8d96cb2446a07151ce95d1f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92d7c5bad62dd24b64dda3e87a4943a8') in 0.017198 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Barrel.prefab
+  artifactKey: Guid(6e604c269b8519d4486bbbc982b9afa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Barrel.prefab using Guid(6e604c269b8519d4486bbbc982b9afa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b482e543f6aa19b1c4304f71e8dfd77') in 0.028855 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.240717 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Models
+  artifactKey: Guid(3b4ee3dca1fb2904fb1f7efdbcf66d0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Models using Guid(3b4ee3dca1fb2904fb1f7efdbcf66d0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c13e0de0dae4c6938aa2471387834f5c') in 0.002844 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 36.506607 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Baker House.prefab
+  artifactKey: Guid(203e953de0dad744083453eef65a4a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Baker House.prefab using Guid(203e953de0dad744083453eef65a4a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80798fbd4034d58e607e91f1aa8e3bf6') in 0.008497 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 24.684379 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Prefabs
+  artifactKey: Guid(8c127946d4071834aa245455490695b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Prefabs using Guid(8c127946d4071834aa245455490695b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '142af6daf199f4b53f29eb729acdca7e') in 0.004816 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 39.388540 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Models/Barrel_raw_model.prefab
+  artifactKey: Guid(6e604c269b8519d4486bbbc982b9afa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Models/Barrel_raw_model.prefab using Guid(6e604c269b8519d4486bbbc982b9afa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4178dff31624a001e7576c1678fcb58d') in 0.029769 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.414349 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Models/Baker_house_raw_model.prefab
+  artifactKey: Guid(1bbb91c8d96cb2446a07151ce95d1f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Models/Baker_house_raw_model.prefab using Guid(1bbb91c8d96cb2446a07151ce95d1f0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e333425a210d1f611ce04ecc70246ed5') in 0.020286 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 25.771010 seconds.
+  path: Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Baker House.prefab
+  artifactKey: Guid(203e953de0dad744083453eef65a4a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Structures/Buildings/Baker House/Prefabs/Baker House.prefab using Guid(203e953de0dad744083453eef65a4a3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '823ea70dd4e599ba5ca6c4457fb52639') in 0.016193 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008560 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.107 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2108ms)
+		BeginReloadAssembly (158ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (53ms)
+		EndReloadAssembly (1733ms)
+			LoadAssemblies (118ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (439ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (106ms)
+			SetupLoadedEditorAssemblies (922ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (20ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (103ms)
+				ProcessInitializeOnLoadAttributes (660ms)
+				ProcessInitializeOnLoadMethodAttributes (130ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (37ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3229 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 23 unused Assets / (317.8 KB). Loaded Objects now: 4063.
+Memory consumption went from 160.3 MB to 160.0 MB.
+Total: 3.929000 ms (FindLiveObjects: 0.325700 ms CreateObjectMapping: 0.136200 ms MarkObjects: 3.360400 ms  DeleteObjects: 0.105300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
