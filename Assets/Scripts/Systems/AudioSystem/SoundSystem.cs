@@ -18,11 +18,11 @@ namespace Systems.AudioSystem
 
         public void Start()
         {
-            SubscribeOnEvent<PlayerGotExperienceEvent>(data.addExperience);
-            SubscribeOnEvent<PlayerGotNewLevelEvent>(data.newLevel);
+            PlayOnEvent<PlayerGotExperienceEvent>(data.addExperience);
+            PlayOnEvent<PlayerGotNewLevelEvent>(data.newLevel);
         }
         
-        private void SubscribeOnEvent<T>(AudioClipData audioClip) where T: EventArgs
+        private void PlayOnEvent<T>(AudioClipData audioClip) where T: EventArgs
         {
             var ds = new SoundPlayer(audioSource, audioClip);
             Events.Subscribe<T>(_ => ds.Play());
