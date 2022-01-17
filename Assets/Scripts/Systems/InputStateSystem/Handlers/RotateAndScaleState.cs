@@ -1,17 +1,17 @@
 ﻿using InputSystem;
-using PlayerMovementSystem;
+using CameraMovementSystem;
 
 namespace InputStateSystem
 {
     public sealed class RotateAndScaleState : IState
     {
         private IInputSystem _inputSystem;
-        private IPlayerMovement _playerMovement;
+        private ICameraMovement cameraMovement;
 
-        public RotateAndScaleState(IInputSystem inputSystem, IPlayerMovement playerMovement)
+        public RotateAndScaleState(IInputSystem inputSystem, ICameraMovement cameraMovement)
         {
             this._inputSystem = inputSystem;
-            this._playerMovement = playerMovement;
+            this.cameraMovement = cameraMovement;
         }
         public bool RequestTarget { get; private set; }
         public void OnIdleUpdate()
@@ -29,8 +29,8 @@ namespace InputStateSystem
             }
             else
             {                
-                _playerMovement.Rotate((_inputSystem.GetRotatingValue()));
-                _playerMovement.Scale((_inputSystem.GetScalingValue()));
+                cameraMovement.Rotate((_inputSystem.GetRotatingValue()));
+                cameraMovement.Scale((_inputSystem.GetScalingValue()));
             }
         }
     }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: CameraMovementSetup
+  m_EditorClassIdentifier: Assembly-CSharp:PlayerMovementSystem:CameraMovementSetup
+  movingSpeed: 1
+  scalingSpeed: 60
+  rotatingSpeed: 0.05
+  minXCameraPosition: -3
+  maxXCameraPosition: 3
+  minZCameraPosition: -3
+  maxZCameraPosition: 3
+  minFieldOfView: 30
+  maxFieldOfView: 100

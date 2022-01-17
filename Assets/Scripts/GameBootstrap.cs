@@ -1,7 +1,7 @@
 ﻿using ExperienceSystem;
 using InputStateSystem;
 using InputSystem;
-using PlayerMovementSystem;
+using CameraMovementSystem;
 using UnityEngine;
 using Utils;
 using Utils.EventSystem;
@@ -9,9 +9,9 @@ using Utils.Services;
 
 public class GameBootstrap : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private InputStateManager inputStateManager;
     [SerializeField] private ExperienceForLevels experienceForLevels;
+    [SerializeField] private CameraMovementSetup cameraMovementSetup;
     
     private IInputSystem inputSystem;
     private IPlayerExperience playerExperience;
@@ -37,7 +37,7 @@ public class GameBootstrap : MonoBehaviour
     private void RegisterServices()
     {
         Services.RegisterService<IInputSystem>(inputSystem);
-        Services.RegisterService<IPlayerMovement>(playerMovement);
+        Services.RegisterService<ICameraMovement>(new CameraMovement(Camera.main, cameraMovementSetup));
         Services.RegisterService<InputStateManager>(inputStateManager);
         Services.RegisterService<IPlayerExperience>(playerExperience);
     }

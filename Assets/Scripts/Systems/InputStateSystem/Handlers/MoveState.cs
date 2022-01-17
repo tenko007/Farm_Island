@@ -1,6 +1,6 @@
 ﻿using InputStateSystem;
 using InputSystem;
-using PlayerMovementSystem;
+using CameraMovementSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,13 +9,13 @@ namespace Systems.InputStateSystem.Handlers
     public sealed class MoveState : IState
     {
         private IInputSystem _inputSystem;
-        private IPlayerMovement _playerMovement;
+        private ICameraMovement cameraMovement;
         private Vector3 _prevMousePosition;
 
-        public MoveState(IInputSystem inputSystem, IPlayerMovement playerMovement)
+        public MoveState(IInputSystem inputSystem, ICameraMovement cameraMovement)
         {
             this._inputSystem = inputSystem;
-            this._playerMovement = playerMovement;
+            this.cameraMovement = cameraMovement;
         }
         public bool RequestTarget { get; private set; }
         public void OnIdleUpdate()
@@ -38,7 +38,7 @@ namespace Systems.InputStateSystem.Handlers
                 Debug.Log($"Mouse position = {_inputSystem.GetMousePosition().ToString()}");
                 
                 Vector3 currentMousePosition = _inputSystem.GetMousePosition();
-                _playerMovement.Move(_prevMousePosition - currentMousePosition);
+                cameraMovement.Move(_prevMousePosition - currentMousePosition);
 
                 _prevMousePosition = currentMousePosition;
             }

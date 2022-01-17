@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using InputSystem;
-using PlayerMovementSystem;
+using CameraMovementSystem;
 using Systems.InputStateSystem.Handlers;
 using Utils.Services;
 
@@ -24,10 +24,10 @@ namespace InputStateSystem
         private void Start()
         {
             IInputSystem inputSystem = Services.GetService<IInputSystem>();
-            IPlayerMovement playerMovement = Services.GetService<IPlayerMovement>();
+            ICameraMovement cameraMovement = Services.GetService<ICameraMovement>();
             PushHandler(new IdleState());
-            PushHandler(new MoveState(inputSystem, playerMovement));
-            PushHandler(new RotateAndScaleState(inputSystem, playerMovement));
+            PushHandler(new MoveState(inputSystem, cameraMovement));
+            PushHandler(new RotateAndScaleState(inputSystem, cameraMovement));
         }
 
         public void PushHandler(IState handler, bool isTarget = false)

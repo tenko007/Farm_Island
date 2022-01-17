@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using Utils.Services;
 
-namespace PlayerMovementSystem
+namespace CameraMovementSystem
 {
-    public interface IPlayerMovement : IService
+    public interface ICameraMovement : IService
     {
         void Move(Vector3 direction);
         void Rotate(float angle);
