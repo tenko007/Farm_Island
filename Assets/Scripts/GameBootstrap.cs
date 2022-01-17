@@ -2,6 +2,7 @@
 using InputStateSystem;
 using InputSystem;
 using CameraMovementSystem;
+using Systems.AudioSystem;
 using UnityEngine;
 using Utils;
 using Utils.EventSystem;
@@ -10,8 +11,14 @@ using Utils.Services;
 public class GameBootstrap : MonoBehaviour
 {
     [SerializeField] private InputStateManager inputStateManager;
+    
+    [Header("Settings")]
     [SerializeField] private ExperienceForLevels experienceForLevels;
-    [SerializeField] private CameraMovementSetup cameraMovementSetup;
+    [SerializeField] private CameraMovementSettings cameraMovementSettings;
+    
+    [Header("Sounds")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private SoundsData soundsData;
     
     private IInputSystem inputSystem;
     private IPlayerExperience playerExperience;
@@ -37,9 +44,10 @@ public class GameBootstrap : MonoBehaviour
     private void RegisterServices()
     {
         Services.RegisterService<IInputSystem>(inputSystem);
-        Services.RegisterService<ICameraMovement>(new CameraMovement(Camera.main, cameraMovementSetup));
+        Services.RegisterService<ICameraMovement>(new CameraMovement(Camera.main, cameraMovementSettings));
         Services.RegisterService<InputStateManager>(inputStateManager);
         Services.RegisterService<IPlayerExperience>(playerExperience);
+        Services.RegisterService<ISoundSystem>(new SoundSystem(audioSource, soundsData));
     }
     
     private void SetupUtils()

@@ -2,8 +2,8 @@
 
 namespace CameraMovementSystem
 {
-    [CreateAssetMenu (menuName = "ScriptableObjects/CameraMovementSetup")]
-    public class CameraMovementSetup : ScriptableObject
+    [CreateAssetMenu (menuName = "ScriptableObjects/CameraMovementSettings")]
+    public class CameraMovementSettings : ScriptableObject
     {
         [Header("Speed Setup")]
         public float movingSpeed = 1f;

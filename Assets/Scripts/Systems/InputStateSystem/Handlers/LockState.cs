@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace InputStateSystem
+﻿namespace InputStateSystem
 {
     public class LockState : IState
     {
@@ -17,7 +15,7 @@ namespace InputStateSystem
 
         public void OnTargetUpdate()
         {
-            Debug.Log("Lock");
+            //Debug.Log("Lock");
         }
     }
 }

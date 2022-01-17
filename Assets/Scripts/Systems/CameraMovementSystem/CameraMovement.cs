@@ -6,11 +6,11 @@ namespace CameraMovementSystem
     public class CameraMovement : ICameraMovement
     {
         private readonly Camera _camera;
-        private readonly CameraMovementSetup _setup;
-        public CameraMovement(Camera camera, CameraMovementSetup setup)
+        private readonly CameraMovementSettings settings;
+        public CameraMovement(Camera camera, CameraMovementSettings settings)
         {
             this._camera = camera;
-            this._setup = setup;
+            this.settings = settings;
         }
 
         public void Move(Vector3 direction)
@@ -23,8 +23,8 @@ namespace CameraMovementSystem
             
             var newPosition = cameraTransform.position;
             newPosition +=
-                yDirection * direction.y * Time.deltaTime * _setup.movingSpeed * fieldOfViewSpeedCoeff + 
-                xDirection * direction.x * Time.deltaTime * _setup.movingSpeed * fieldOfViewSpeedCoeff; 
+                yDirection * direction.y * Time.deltaTime * settings.movingSpeed * fieldOfViewSpeedCoeff + 
+                xDirection * direction.x * Time.deltaTime * settings.movingSpeed * fieldOfViewSpeedCoeff; 
 
             newPosition = ClampPosition(newPosition);
             
@@ -34,16 +34,16 @@ namespace CameraMovementSystem
         private Vector3 ClampPosition(Vector3 position)
         {
             Vector3 newPosition = new Vector3(
-                x: Mathf.Clamp(position.x, _setup.minXCameraPosition, _setup.maxXCameraPosition), 
+                x: Mathf.Clamp(position.x, settings.minXCameraPosition, settings.maxXCameraPosition), 
                 y: position.y, 
-                z: Mathf.Clamp(position.z, _setup.minZCameraPosition, _setup.maxZCameraPosition));
+                z: Mathf.Clamp(position.z, settings.minZCameraPosition, settings.maxZCameraPosition));
             
             return newPosition;
         }
         
         public void Rotate(float angle)
         {
-            angle = angle * _setup.rotatingSpeed;
+            angle = angle * settings.rotatingSpeed;
             if (angle != 0)
             {
                 Vector3 cameraViewPoint = WorldPoints.GetCameraCenterPositionOnWorldObject();
@@ -53,8 +53,8 @@ namespace CameraMovementSystem
 
         public void Scale(float scaleValue)
         {
-            float newFieldOfView = _camera.fieldOfView - scaleValue * _setup.scalingSpeed;
-            newFieldOfView = Mathf.Clamp(newFieldOfView, _setup.minFieldOfView, _setup.maxFieldOfView);
+            float newFieldOfView = _camera.fieldOfView - scaleValue * settings.scalingSpeed;
+            newFieldOfView = Mathf.Clamp(newFieldOfView, settings.minFieldOfView, settings.maxFieldOfView);
 
             _camera.fieldOfView = newFieldOfView;
         }

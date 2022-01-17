@@ -1,27 +1,28 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
 {
     [RequireComponent(typeof(Button))]
-    public class CloseButton : MonoBehaviour
+    public class CloseButton : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] private GameObject objectToClose;
-        [SerializeField] private Animator animator;
         [SerializeField] private string closeAnimationTrigger = "Close";
         [SerializeField] private float destroyDelay;
         
-        private void Awake()
+        public void OnPointerClick(PointerEventData eventData)
         {
-            gameObject.GetComponent<Button>().onClick.AddListener(() => Close(objectToClose));
+            Close(objectToClose);
         }
-
         private void Close(GameObject objectToCloseParam)
         {
-            if (animator != null)
-                animator.SetTrigger(closeAnimationTrigger);
             if (objectToCloseParam == null)
                 objectToCloseParam = transform.parent.gameObject;
+            Animator animator = objectToCloseParam.GetComponent<Animator>();
+            if (animator != null)
+                animator.SetTrigger(closeAnimationTrigger);
+
             Destroy(objectToCloseParam, destroyDelay);
         }
     }

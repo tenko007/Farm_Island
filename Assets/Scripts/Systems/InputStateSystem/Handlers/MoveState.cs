@@ -35,7 +35,7 @@ namespace Systems.InputStateSystem.Handlers
             }
             else
             {
-                Debug.Log($"Mouse position = {_inputSystem.GetMousePosition().ToString()}");
+                //Debug.Log($"Mouse position = {_inputSystem.GetMousePosition().ToString()}");
                 
                 Vector3 currentMousePosition = _inputSystem.GetMousePosition();
                 cameraMovement.Move(_prevMousePosition - currentMousePosition);
