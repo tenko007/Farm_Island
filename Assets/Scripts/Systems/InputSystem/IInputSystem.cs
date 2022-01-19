@@ -3,7 +3,7 @@ using Utils.Services;
 
 namespace InputSystem
 {
-    public interface IInputSystem : IService
+    public interface IInputSystem
     {
         bool ClickStart();
         bool ClickEnd();

@@ -2,7 +2,7 @@
 
 namespace Systems.AudioSystem
 {
-    public interface ISoundSystem : IService
+    public interface ISoundSystem
     {
         
     }

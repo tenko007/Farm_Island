@@ -3,7 +3,7 @@ using Utils.Services;
 
 namespace Utils.EventSystem
 {
-    public interface IEventAggregator : IService
+    public interface IEventAggregator
     {
         void Subscribe<T>(Action<T> eventHandler) where T: EventArgs;
         void Unsubscribe<T>(Action<T> eventHandler) where T: EventArgs;

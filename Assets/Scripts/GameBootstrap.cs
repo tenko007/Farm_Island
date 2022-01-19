@@ -10,8 +10,6 @@ using Utils.Services;
 
 public class GameBootstrap : MonoBehaviour
 {
-    [SerializeField] private InputStateManager inputStateManager;
-    
     [Header("Settings")]
     [SerializeField] private ExperienceForLevels experienceForLevels;
     [SerializeField] private CameraMovementSettings cameraMovementSettings;
@@ -22,7 +20,6 @@ public class GameBootstrap : MonoBehaviour
     
     private IInputSystem inputSystem;
     private IPlayerExperience playerExperience;
-    private IExperienceAwarder experienceAwarder;
 
     private void Awake()
     {
@@ -38,16 +35,15 @@ public class GameBootstrap : MonoBehaviour
     {
         ChooseInputSystem();
         playerExperience = new PlayerExperience(1,0,experienceForLevels); // TODO Load level from somewhere
-        experienceAwarder = new ExperienceAwarder(playerExperience);
     }
 
     private void RegisterServices()
     {
         Services.RegisterService<IInputSystem>(inputSystem);
         Services.RegisterService<ICameraMovement>(new CameraMovement(Camera.main, cameraMovementSettings));
-        Services.RegisterService<InputStateManager>(inputStateManager);
         Services.RegisterService<IPlayerExperience>(playerExperience);
         Services.RegisterService<ISoundSystem>(new SoundSystem(audioSource, soundsData));
+        Services.RegisterService<IExperienceAwarder>(new ExperienceAwarder(playerExperience));
     }
     
     private void SetupUtils()

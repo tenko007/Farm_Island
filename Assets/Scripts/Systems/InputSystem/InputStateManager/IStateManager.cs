@@ -2,7 +2,7 @@
 
 namespace InputStateSystem
 {
-    public interface IStateManager : IService
+    public interface IStateManager
     {
         void PushHandler(IState handler, bool isTarget = false);
 

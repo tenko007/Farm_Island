@@ -3,7 +3,7 @@ using Utils.Services;
 
 namespace CameraMovementSystem
 {
-    public interface ICameraMovement : IService
+    public interface ICameraMovement
     {
         void Move(Vector3 direction);
         void Rotate(float angle);

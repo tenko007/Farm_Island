@@ -9,12 +9,12 @@
             Services._serviceLocator = serviceLocator;
         }
         
-        public static void RegisterService<T>(T service) where T : IService
+        public static void RegisterService<T>(T service)
         {
             _serviceLocator.RegisterService(service);
         }
 
-        public static T GetService<T>() where T : IService
+        public static T GetService<T>()
         {
             return _serviceLocator.GetService<T>();
         }

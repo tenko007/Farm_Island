@@ -5,9 +5,9 @@ namespace Utils.Services
 {
     public class ServiceLocator : IServiceLocator
     {
-        private Dictionary<Type, IService> Services = new Dictionary<Type, IService>();
+        private Dictionary<Type, object> Services = new Dictionary<Type, object>();
         
-        public void RegisterService<T>(T service) where T : IService
+        public void RegisterService<T>(T service)
         {
             if (service == null)
                 throw new NullReferenceException($"Attempt to register null as a service {typeof(T)}");
@@ -18,7 +18,7 @@ namespace Utils.Services
                 Services[typeof(T)] = service;
         }
 
-        public T GetService<T>() where T : IService
+        public T GetService<T>()
         {
             if (Services.ContainsKey(typeof(T)))
                 return (T) Services[typeof(T)];
@@ -26,7 +26,7 @@ namespace Utils.Services
                 throw new KeyNotFoundException($"Service with type {typeof(T)} not registered");
         }
         
-        public T TryGetService<T>() where T : IService
+        public T TryGetService<T>()
         {
             if (Services.ContainsKey(typeof(T)))
                 return (T)Services[typeof(T)];

@@ -2,7 +2,7 @@ using Utils.Services;
 
 namespace ExperienceSystem
 {
-    public interface IPlayerExperience : IService
+    public interface IPlayerExperience
     {
         int Level { get; }
         int Experience { get; }

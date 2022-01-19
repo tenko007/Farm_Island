@@ -36,7 +36,7 @@ namespace InputSystem
         public float GetRotatingValue()
         {
             if (Input.GetMouseButton(2)) // Middle Mouse Button
-                return Input.GetAxis("Mouse Y") * 500f;
+                return Mathf.Abs(Input.GetAxis("Mouse Y") + Input.GetAxis("Mouse X")) * 500f;
             return 0f;
         }
 
