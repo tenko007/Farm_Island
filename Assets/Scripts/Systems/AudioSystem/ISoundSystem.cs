@@ -1,6 +1,4 @@
-﻿using Utils.Services;
-
-namespace Systems.AudioSystem
+﻿namespace Systems.AudioSystem
 {
     public interface ISoundSystem
     {

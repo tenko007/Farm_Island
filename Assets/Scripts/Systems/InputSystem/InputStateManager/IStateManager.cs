@@ -1,6 +1,4 @@
-﻿using Utils.Services;
-
-namespace InputStateSystem
+﻿namespace InputStateSystem
 {
     public interface IStateManager
     {

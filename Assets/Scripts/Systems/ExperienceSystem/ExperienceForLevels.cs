@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ExperienceSystem
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/ExperienceForLevels")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/Settings/ExperienceForLevels")]
     public class ExperienceForLevels : ScriptableObject
     {
         [SerializeField] private List<int> list;

@@ -1,5 +1,4 @@
 using System;
-using Utils.Services;
 
 namespace Utils.EventSystem
 {

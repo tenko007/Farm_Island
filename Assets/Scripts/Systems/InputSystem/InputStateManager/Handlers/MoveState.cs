@@ -2,7 +2,6 @@
 using InputSystem;
 using CameraMovementSystem;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Systems.InputStateSystem.Handlers
 {
@@ -20,7 +19,7 @@ namespace Systems.InputStateSystem.Handlers
         public bool RequestTarget { get; private set; }
         public void OnIdleUpdate()
         {
-            if (_inputSystem.IsDragging() && !EventSystem.current.IsPointerOverGameObject())
+            if (_inputSystem.IsDragging())// && !EventSystem.current.IsPointerOverGameObject())
             {
                 _prevMousePosition = _inputSystem.GetMousePosition();
                 this.RequestTarget = true;
