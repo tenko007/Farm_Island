@@ -21,7 +21,7 @@ namespace InputStateSystem
             inputStateManager.PushHandler(new MoveState(inputSystem, cameraMovement));
             inputStateManager.PushHandler(new RotateAndScaleState(inputSystem, cameraMovement));
             
-            Services.RegisterService<InputStateManager>(inputStateManager);
+            Services.RegisterService<IInputStateManager>(inputStateManager);
         }
 
         private void Update()

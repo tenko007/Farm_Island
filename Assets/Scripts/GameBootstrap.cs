@@ -48,6 +48,7 @@ public class GameBootstrap : MonoBehaviour
     private void SetupUtils()
     {
         WorldPoints.SetInputSystem(inputSystem);
+        WorldPoints.SetCamera(Camera.main);
     }
         
     private void ChooseInputSystem()

@@ -8,6 +8,8 @@ namespace Systems.BuildingSystem
     {
         public int CollectResource(DateTime currentTime)
         {
+            Debug.Log("Give me your money!");
+            
             int coinsCount = GetResourceCount(currentTime);
             if (coinsCount > 0)
             {
@@ -22,6 +24,11 @@ namespace Systems.BuildingSystem
         {
             float secondsSpent = (currentTime - model.LastUsedTime).Seconds;
             int resourceCount = (int) (secondsSpent * model.ResourcePerSecond);
+            
+            if (resourceCount > model.MaxQtyToCollect)
+                resourceCount = model.MaxQtyToCollect;
+            if (resourceCount < model.MinQtyToCollect)
+                resourceCount = 0;
 
             return resourceCount;
         }

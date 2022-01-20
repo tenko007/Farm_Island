@@ -7,10 +7,16 @@ namespace Utils
     {
         private static IInputSystem _inputSystem;
         private static float _maxRayDistance = 1000f;
+        private static Camera _camera = Camera.main;
 
         public static void SetInputSystem(IInputSystem inputSystem)
         {
             _inputSystem = inputSystem;
+        }
+        
+        public static void SetCamera(Camera camera)
+        {
+            _camera = camera;
         }
 
         public static void SetMaxRayDistance(float maxRayDistance)
@@ -92,13 +98,12 @@ namespace Utils
 
         private static Ray GetRayToPoint(Vector3 point)
         {
-            return Camera.main.ScreenPointToRay(point);
+            return _camera.ScreenPointToRay(point);
         }
 
         private static Ray GetRayToCenterOfCamera()
         {
-            var camera = Camera.main;
-            Vector3 point = new Vector3(camera.pixelWidth/2f, camera.pixelHeight/2f, 0);
+            Vector3 point = new Vector3(_camera.pixelWidth/2f, _camera.pixelHeight/2f, 0);
             return GetRayToPoint(point);
         }
 
@@ -161,12 +166,12 @@ namespace Utils
 
         public static Vector2 GetObjectPositionOnScreen(GameObject obj)
         {
-            return Camera.main.WorldToScreenPoint(obj.transform.position);
+            return _camera.WorldToScreenPoint(obj.transform.position);
         }
 
         public static Vector2 GetPointPositionOnScreen(Vector3 point)
         {
-            return Camera.main.WorldToScreenPoint(point);
+            return _camera.WorldToScreenPoint(point);
         }
 
     }

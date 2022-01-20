@@ -2,7 +2,7 @@
 
 namespace InputStateSystem
 {
-    public class InputStateManager : IStateManager
+    public class InputStateManager : IInputStateManager
     {
         private readonly List<IState> _handlers;
         private IState _target;

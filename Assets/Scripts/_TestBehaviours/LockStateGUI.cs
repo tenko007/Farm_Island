@@ -6,11 +6,11 @@ namespace _TestBehaviors
 {
     public class LockStateGUI : MonoBehaviour
     {
-        private InputStateManager inputStateManager;
+        private IInputStateManager inputStateManager;
 
         private void Start()
         {
-            inputStateManager = Services.GetService<InputStateManager>();
+            inputStateManager = Services.GetService<IInputStateManager>();
         }
         
 #if UNITY_EDITOR

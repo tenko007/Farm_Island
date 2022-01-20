@@ -644,11 +644,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baker House
       objectReference: {fileID: 0}
-    - target: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4472807309331385096, guid: 203e953de0dad744083453eef65a4a3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -729,7 +724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1594233387
 MonoBehaviour:
   m_ObjectHideFlags: 0

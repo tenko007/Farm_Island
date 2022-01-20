@@ -21,8 +21,7 @@ namespace Foundation.MVC
         public virtual void Init(TM newModel)
         {
             controller = new TC();
-            newModel = Instantiate(newModel);
-            controller.Setup(newModel);
+            controller.Setup(Instantiate(newModel));
             inited = true;
         }
     }

@@ -12,6 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad0e759e932415394326faafbea62a9, type: 3}
   m_Name: House
   m_EditorClassIdentifier: 
-  level: 0
-  gainingResource: {fileID: 0}
-  _levelDatas: []
+  level: 1
+  gainingResource: {fileID: 11400000, guid: 7ae9efa406318f8469bd855cf64a819e, type: 2}
+  _levelDatas:
+  - prefab: {fileID: 0}
+    resourcePerSecond: 1
+    minQtyToCollect: 0
+    maxQtyToCollect: 10
+  - prefab: {fileID: 0}
+    resourcePerSecond: 2
+    minQtyToCollect: 0
+    maxQtyToCollect: 12
+  - prefab: {fileID: 0}
+    resourcePerSecond: 4
+    minQtyToCollect: 0
+    maxQtyToCollect: 15
