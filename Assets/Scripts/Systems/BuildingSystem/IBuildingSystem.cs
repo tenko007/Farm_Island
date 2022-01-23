@@ -1,4 +1,5 @@
 ﻿using Foundation.MVC;
+using UnityEngine;
 using Utils.Services;
 
 namespace Systems.BuildingSystem
@@ -7,9 +8,9 @@ namespace Systems.BuildingSystem
     {
         public BaseModel CurrentStructure { get; }
 
-        public void SetStructureToBuild(BaseModel structure)
+        public IBuildingSystem SetStructureToBuild(BaseModel structure)
         {
-            
+            return this;
         }
 
         public void StartBuild()
@@ -20,6 +21,11 @@ namespace Systems.BuildingSystem
         public void EndBuild()
         {
             
-        }        
+        }
+
+        public void Build(Vector3 position, Vector3 rotation)
+        {
+            
+        }
     }
 }

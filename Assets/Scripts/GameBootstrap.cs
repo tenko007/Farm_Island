@@ -2,6 +2,8 @@
 using InputSystem;
 using CameraMovementSystem;
 using Systems.AudioSystem;
+using Systems.BuildingSystem;
+using Systems.InventorySystem;
 using UnityEngine;
 using Utils;
 using Utils.EventSystem;
@@ -43,6 +45,8 @@ public class GameBootstrap : MonoBehaviour
         Services.RegisterService<IPlayerExperience>(playerExperience);
         Services.RegisterService<ISoundSystem>(new SoundSystem(audioSource, soundsData));
         Services.RegisterService<IExperienceAwarder>(new ExperienceAwarder(playerExperience));
+        Services.RegisterService<IPlayerResourceInventory>(new PlayerResourceInventory());
+        Services.RegisterService<IBuildingSystem>(new BuildingSystem());
     }
     
     private void SetupUtils()

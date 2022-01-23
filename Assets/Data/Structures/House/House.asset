@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad0e759e932415394326faafbea62a9, type: 3}
   m_Name: House
   m_EditorClassIdentifier: 
+  prefab: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e, type: 3}
   level: 1
   gainingResource: {fileID: 11400000, guid: 7ae9efa406318f8469bd855cf64a819e, type: 2}
   _levelDatas:
-  - prefab: {fileID: 0}
+  - prefab: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e, type: 3}
     resourcePerSecond: 1
     minQtyToCollect: 0
     maxQtyToCollect: 10
-  - prefab: {fileID: 0}
+  - prefab: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e, type: 3}
     resourcePerSecond: 2
     minQtyToCollect: 0
     maxQtyToCollect: 12
-  - prefab: {fileID: 0}
+  - prefab: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e, type: 3}
     resourcePerSecond: 4
     minQtyToCollect: 0
     maxQtyToCollect: 15

@@ -389,7 +389,7 @@ PrefabInstance:
     - target: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4472807309331385096, guid: 203e953de0dad744083453eef65a4a3e,
         type: 3}
@@ -469,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4472807309331385096, guid: 203e953de0dad744083453eef65a4a3e,
         type: 3}
@@ -643,6 +643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baker House
+      objectReference: {fileID: 0}
+    - target: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4472807309331385096, guid: 203e953de0dad744083453eef65a4a3e,
         type: 3}
@@ -942,6 +947,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4858645443366524816, guid: b3418d2f40af2c24daaff6a124a2e595,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 4858645443366524816, guid: b3418d2f40af2c24daaff6a124a2e595,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 8913823781119918463, guid: b3418d2f40af2c24daaff6a124a2e595,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8913823781308412176, guid: b3418d2f40af2c24daaff6a124a2e595,
         type: 3}
       propertyPath: m_RootOrder
