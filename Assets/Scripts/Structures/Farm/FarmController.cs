@@ -10,8 +10,6 @@ namespace Systems.PlantingSystem
 {
     public class FarmController : BaseContoller<FarmModel>
     {
-        private new FarmModel model;
-
         public void Plant(Seed seed, DateTime startTime)
         {
             model.CurrentPlant = seed.resultPlant;

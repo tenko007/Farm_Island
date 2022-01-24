@@ -729,7 +729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1594233387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,6 +947,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3561786623291109691, guid: b3418d2f40af2c24daaff6a124a2e595,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4858645443366524816, guid: b3418d2f40af2c24daaff6a124a2e595,
         type: 3}
       propertyPath: m_fontAsset
