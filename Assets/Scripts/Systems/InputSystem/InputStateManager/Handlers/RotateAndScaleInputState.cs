@@ -3,15 +3,15 @@ using CameraMovementSystem;
 
 namespace InputStateSystem
 {
-    public sealed class RotateAndScaleState : IState
+    public sealed class RotateAndScaleInputState : IState
     {
         private IInputSystem _inputSystem;
-        private ICameraMovement cameraMovement;
+        private ICameraMovement _cameraMovement;
 
-        public RotateAndScaleState(IInputSystem inputSystem, ICameraMovement cameraMovement)
+        public RotateAndScaleInputState(IInputSystem inputSystem, ICameraMovement cameraMovement)
         {
             this._inputSystem = inputSystem;
-            this.cameraMovement = cameraMovement;
+            this._cameraMovement = cameraMovement;
         }
         public bool RequestTarget { get; private set; }
         public void OnIdleUpdate()
@@ -29,8 +29,8 @@ namespace InputStateSystem
             }
             else
             {                
-                cameraMovement.Rotate((_inputSystem.GetRotatingValue()));
-                cameraMovement.Scale((_inputSystem.GetScalingValue()));
+                _cameraMovement.Rotate((_inputSystem.GetRotatingValue()));
+                _cameraMovement.Scale((_inputSystem.GetScalingValue()));
             }
         }
     }

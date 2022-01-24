@@ -10,10 +10,13 @@ namespace UI
     public class UIManager : MonoBehaviour, IUIManager 
     {
         [Header("Main UI")] 
-        [SerializeField] private Button BuildButton;
+        [SerializeField] private Button buildButton;
 
-        [SerializeField] private ResourceGainerModel _model;
+        [SerializeField] private UIBuildingActions buildingActions;
+        [SerializeField] private ResourceGainerModel model; //TODO delete
 
+        [Header("Canvases")]
+        [SerializeField] private GameObject PopupsCanvas;
         private void Start()
         {
             /*
@@ -26,11 +29,13 @@ namespace UI
                 Services.GetService<IBuildingSystem>().SetStructureToBuild(_model).Build(Vector3.zero, Vector3.zero);
             });
             */
-            
-            BuildButton.onClick.AddListener(() =>
-                Services.GetService<IBuildingSystem>().SetStructureToBuild(_model).Build(Vector3.zero, Vector3.zero));
+
+            buildButton.onClick.AddListener(() =>
+                Services.GetService<IBuildingSystem>().SetStructureToBuild(model).StartBuild());
+
+            Services.GetService<IBuildingSystem>().OnBuildingStart +=
+                _ => Instantiate(buildingActions.gameObject, PopupsCanvas.transform);
         }
+
     }
-
-
 }

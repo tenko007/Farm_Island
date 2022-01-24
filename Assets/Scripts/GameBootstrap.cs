@@ -18,6 +18,9 @@ public class GameBootstrap : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private SoundsData soundsData;
+
+    [Header("GameObjects")] 
+    [SerializeField] private Map map;
     
     private IInputSystem inputSystem;
     private IPlayerExperience playerExperience;
@@ -46,7 +49,8 @@ public class GameBootstrap : MonoBehaviour
         Services.RegisterService<ISoundSystem>(new SoundSystem(audioSource, soundsData));
         Services.RegisterService<IExperienceAwarder>(new ExperienceAwarder(playerExperience));
         Services.RegisterService<IPlayerResourceInventory>(new PlayerResourceInventory());
-        Services.RegisterService<IBuildingSystem>(new BuildingSystem());
+        Services.RegisterService<IBuildingSystem>(new BuildingSystem(map));
+        Services.RegisterService<ICoroutinesUpdater>(Instantiate(new GameObject().AddComponent<CoroutinesUpdater>(), this.transform));
     }
     
     private void SetupUtils()

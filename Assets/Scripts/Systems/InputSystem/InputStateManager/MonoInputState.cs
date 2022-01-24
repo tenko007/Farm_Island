@@ -17,9 +17,9 @@ namespace InputStateSystem
             IInputSystem inputSystem = Services.GetService<IInputSystem>();
             ICameraMovement cameraMovement = Services.GetService<ICameraMovement>();
             
-            inputStateManager.PushHandler(new IdleState());
-            inputStateManager.PushHandler(new MoveState(inputSystem, cameraMovement));
-            inputStateManager.PushHandler(new RotateAndScaleState(inputSystem, cameraMovement));
+            inputStateManager.PushHandler(new IdleInputState());
+            inputStateManager.PushHandler(new MoveInputState(inputSystem, cameraMovement));
+            inputStateManager.PushHandler(new RotateAndScaleInputState(inputSystem, cameraMovement));
             
             Services.RegisterService<IInputStateManager>(inputStateManager);
         }

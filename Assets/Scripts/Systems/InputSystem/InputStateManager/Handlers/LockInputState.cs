@@ -1,11 +1,16 @@
 ﻿namespace InputStateSystem
 {
-    public sealed class IdleState : IState
+    public class LockInputState : IState
     {
         public bool RequestTarget { get; }
+
+        public LockInputState()
+        {
+            this.RequestTarget = true;
+        }
         public void OnIdleUpdate()
         {
-            //Debug.Log("Idle");
+
         }
 
         public void OnTargetUpdate()

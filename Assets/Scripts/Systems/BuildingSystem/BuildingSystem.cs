@@ -1,39 +1,81 @@
-﻿using Foundation.MVC;
-using InputSystem;
+﻿using System;
+using System.Collections;
+using Foundation.MVC;
+using Systems.PlantingSystem;
 using UnityEngine;
+using Utils;
 using Utils.Services;
 
 namespace Systems.BuildingSystem
 {
     public class BuildingSystem : IBuildingSystem
     {
-        public BaseModel CurrentStructure { get; private set; }
-        private IInputSystem _inputSystem;
+        public BaseModel CurrentModel { get; private set; }
+        public GameObject CurrentGameObject { get; private set; }
 
-        
-        public IBuildingSystem SetStructureToBuild(BaseModel structure)
+        private Map map;
+        private Transform groundTransform;
+
+        public BuildingSystem(Map map)
         {
-            this.CurrentStructure = structure;
-            _inputSystem = Services.GetService<IInputSystem>();
+            this.map = map;
+            groundTransform = map.GroundGameObject.transform;
+        }
+        
+        public event Action<BaseModel> OnBuildingStart;
+        public event Action<GameObject> OnBuildingEnd;
+        public event Action<GameObject> OnBuildingCancelled;
+        
+        public IBuildingSystem SetStructureToBuild(BaseModel model)
+        {
+            this.CurrentModel = model;
             return this;
         }
 
         public void StartBuild()
         {
-
+            OnBuildingStart?.Invoke(CurrentModel);
+            CurrentGameObject = Instantiate(WorldPoints.GetCameraCenterPositionOnWorldObject(), Vector3.zero);
+            CurrentGameObject.transform.SetParent(groundTransform);
+            Services.GetService<ICoroutinesUpdater>().StartA(BuildProgress(CurrentGameObject));
         }
 
-        public void Build(Vector3 position, Vector3 rotation)
+        public void CancelBuild()
         {
-            var prefab = CurrentStructure.Prefab;
-            GameObject.Instantiate(prefab, position, Quaternion.Euler(rotation));
+            OnBuildingCancelled?.Invoke(CurrentGameObject);
+            StopBuilding(true);
         }
 
         public void EndBuild()
         {
+            OnBuildingEnd?.Invoke(CurrentGameObject);
+            StopBuilding();
+        }
+
+        private void StopBuilding(bool cancel = false)
+        {
+            Services.GetService<ICoroutinesUpdater>().Stop(BuildProgress(CurrentGameObject));
             
+            if (cancel)
+                GameObject.Destroy(CurrentGameObject);
+
+            CurrentGameObject = null;
+            CurrentModel = null;
         }
         
+        public GameObject Instantiate(Vector3 position, Vector3 rotation)
+        {
+            var prefab = CurrentModel.Prefab;
+            return GameObject.Instantiate(prefab, position, Quaternion.Euler(rotation));
+        }
         
+        public IEnumerator BuildProgress(GameObject gameObject)
+        {
+            for (;;)
+            {
+                CurrentGameObject.transform.position = WorldPoints.GetCameraCenterPositionOnLayer(map.GroundLayer);
+                yield return null;
+            }
+        }
     }
-}
+} 

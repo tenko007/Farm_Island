@@ -5,16 +5,16 @@ using UnityEngine;
 
 namespace Systems.InputStateSystem.Handlers
 {
-    public sealed class MoveState : IState
+    public sealed class MoveInputState : IState
     {
         private IInputSystem _inputSystem;
-        private ICameraMovement cameraMovement;
+        private ICameraMovement _cameraMovement;
         private Vector3 _prevMousePosition;
 
-        public MoveState(IInputSystem inputSystem, ICameraMovement cameraMovement)
+        public MoveInputState(IInputSystem inputSystem, ICameraMovement cameraMovement)
         {
             this._inputSystem = inputSystem;
-            this.cameraMovement = cameraMovement;
+            this._cameraMovement = cameraMovement;
         }
         public bool RequestTarget { get; private set; }
         public void OnIdleUpdate()
@@ -34,10 +34,8 @@ namespace Systems.InputStateSystem.Handlers
             }
             else
             {
-                //Debug.Log($"Mouse position = {_inputSystem.GetMousePosition().ToString()}");
-                
                 Vector3 currentMousePosition = _inputSystem.GetMousePosition();
-                cameraMovement.Move(_prevMousePosition - currentMousePosition);
+                _cameraMovement.Move(_prevMousePosition - currentMousePosition);
 
                 _prevMousePosition = currentMousePosition;
             }

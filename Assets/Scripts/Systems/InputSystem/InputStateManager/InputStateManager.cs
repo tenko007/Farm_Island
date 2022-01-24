@@ -12,7 +12,7 @@ namespace InputStateSystem
         public InputStateManager()
         {
             this._handlers = new List<IState>();
-            this._locker = new LockState();
+            this._locker = new LockInputState();
         }
         
         public void PushHandler(IState handler, bool isTarget = false)

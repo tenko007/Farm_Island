@@ -1,6 +1,9 @@
 ﻿using System;
 using Foundation.MVC;
+using Systems.InventorySystem;
+using Systems.ResourcesSystem;
 using UnityEngine;
+using Utils.Services;
 
 namespace Systems.BuildingSystem
 {
@@ -8,14 +11,14 @@ namespace Systems.BuildingSystem
     {
         public int CollectResource(DateTime currentTime)
         {
-            Debug.Log("Give me your money!");
+            Debug.Log("Give me your stuff!");
             
             int coinsCount = GetResourceCount(currentTime);
             if (coinsCount > 0)
             {
                 model.LastUsedTime = currentTime;
-                //Services.GetService<IPlayerInventory>().Add(new ResourceObject()); // TODO uncomment where IPlayerInventory will be allowed
-                Debug.Log($"Add Coins! {coinsCount.ToString()} pcs.");
+                Services.GetService<IPlayerResourceInventory>().Add(model.gainingResource, GetResourceCount(currentTime));
+                Debug.Log($"{coinsCount.ToString()} pcs. of {model.gainingResource.Name} added to PlayerResourceInventory!");
             }
             return coinsCount;
         }
