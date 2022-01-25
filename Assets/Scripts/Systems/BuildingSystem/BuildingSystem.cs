@@ -23,7 +23,6 @@ namespace Systems.BuildingSystem
             this.map = map;
             groundTransform = map.GroundGameObject.transform;
         }
-        
         public event Action<BaseModel> OnBuildingStart;
         public event Action<GameObject> OnBuildingEnd;
         public event Action<GameObject> OnBuildingCancelled;
@@ -38,7 +37,6 @@ namespace Systems.BuildingSystem
         {
             OnBuildingStart?.Invoke(CurrentModel);
             CurrentGameObject = Instantiate(WorldPoints.GetCameraCenterPositionOnWorldObject(), Vector3.zero);
-            CurrentGameObject.transform.SetParent(groundTransform);
             buildingCoroutine = Services.GetService<ICoroutinesUpdater>().StartA(BuildProgress());
         }
 
@@ -69,10 +67,13 @@ namespace Systems.BuildingSystem
         public GameObject Instantiate(Vector3 position, Vector3 rotation)
         {
             var prefab = CurrentModel.Prefab;
-            return GameObject.Instantiate(prefab, position, Quaternion.Euler(rotation));
+            prefab.GetComponent<BaseView>().Init(CurrentModel);
+            CurrentGameObject = GameObject.Instantiate(prefab, position, Quaternion.Euler(rotation));
+            CurrentGameObject.transform.SetParent(groundTransform);
+            return CurrentGameObject;
         }
-        
-        public IEnumerator BuildProgress()
+
+        private IEnumerator BuildProgress()
         {
             for (;;)
             {

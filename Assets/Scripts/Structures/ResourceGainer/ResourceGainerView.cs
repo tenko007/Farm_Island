@@ -5,18 +5,20 @@ using UnityEngine.EventSystems;
 
 namespace Systems.BuildingSystem
 {
-    public class ResourceGainerView : BaseView<ResourceGainerModel, ResourceGainerController>, IPointerClickHandler
+    public class ResourceGainerView : BaseView, IPointerClickHandler
     {
-        public override void Init(ResourceGainerModel newModel)
+        public override void Init(BaseModel newModel)
         {
+            controller = new ResourceGainerController();
             base.Init(newModel);
-            newModel.LastUsedTime = DateTime.Now;
+            ((ResourceGainerModel)newModel).LastUsedTime = DateTime.Now;
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (controller.CollectResource(DateTime.Now) < 0)
+            if (((ResourceGainerController)controller).CollectResource(DateTime.Now) < 0)
                 ; // TODO Open UI Menu.
         }
+
     }
 }

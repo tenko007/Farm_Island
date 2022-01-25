@@ -10,8 +10,7 @@ namespace Systems.BuildingSystem
     {
         public Coroutine StartA(IEnumerator enumerator)
         {
-            Coroutine newCoroutine = StartCoroutine(enumerator);
-            return newCoroutine;
+            return StartCoroutine(enumerator);
         }
 
         public void Stop(Coroutine coroutine)

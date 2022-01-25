@@ -8,12 +8,13 @@ using Utils.Services;
 
 namespace Systems.PlantingSystem
 {
-    public class FarmController : BaseContoller<FarmModel>
+    public class FarmController : BaseContoller
     {
+        public FarmModel Model => (FarmModel) model;
         public void Plant(Seed seed, DateTime startTime)
         {
-            model.CurrentPlant = seed.resultPlant;
-            model.StartTime = startTime;
+            Model.CurrentPlant = seed.resultPlant;
+            Model.StartTime = startTime;
         }
 
         private void OnClickAction()
@@ -26,7 +27,7 @@ namespace Systems.PlantingSystem
 
         public void Collect()
         {
-            var resultRO = model.CurrentPlant.PlantResult;
+            var resultRO = Model.CurrentPlant.PlantResult;
             Services.GetService<IPlayerResourceInventory>().Add(resultRO.Resource, resultRO.Count);
         }
     }

@@ -18,11 +18,6 @@ MonoBehaviour:
   _levelDatas:
   - prefab: {fileID: 4820828210557654774, guid: 759556f4096e84e40bf7b2af736e4e1c,
       type: 3}
-    resourcePerSecond: 12
+    resourcePerSecond: 10
     minQtyToCollect: 0
-    maxQtyToCollect: 100
-  - prefab: {fileID: 4820828210557654774, guid: 759556f4096e84e40bf7b2af736e4e1c,
-      type: 3}
-    resourcePerSecond: 14
-    minQtyToCollect: 0
-    maxQtyToCollect: 200
+    maxQtyToCollect: 120

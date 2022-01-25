@@ -4,23 +4,21 @@ using UnityEngine;
 
 namespace Foundation.MVC
 {
-    public abstract class BaseView<TM,TC> : MonoBehaviour 
-        where TM : BaseModel 
-        where TC : BaseContoller<TM>, new()
+    public abstract class BaseView : MonoBehaviour 
     {
-        [SerializeField] private TM model;
-        protected TC controller;
-        private bool inited; 
-        
-        private void Awake()
+        [SerializeField] private BaseModel model;
+        protected BaseContoller controller;
+        private bool inited;
+
+        private void Start()
         {
             if (!inited) 
                 Init(model);
         }
 
-        public virtual void Init(TM newModel)
+        public virtual void Init(BaseModel newModel)
         {
-            controller = new TC();
+            model = newModel;
             controller.Setup(Instantiate(newModel));
             inited = true;
         }

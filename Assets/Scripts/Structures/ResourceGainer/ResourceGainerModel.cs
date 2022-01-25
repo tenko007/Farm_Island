@@ -9,8 +9,10 @@ namespace Systems.BuildingSystem
     [CreateAssetMenu(menuName = "ScriptableObjects/Structures/ResourceGainer")]
     public class ResourceGainerModel : BaseModel
     {
-        [SerializeField] public int level;
-        public Resource gainingResource;
+        [SerializeField] private int level = 1;
+        public int Level => level;
+        [SerializeField] private Resource gainingResource;
+        public Resource GainingResource => gainingResource;
         private DateTime lastUseTime = DateTime.Now;
         
         [SerializeField] private List<LevelData> _levelDatas;

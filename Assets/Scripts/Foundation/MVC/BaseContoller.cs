@@ -1,9 +1,9 @@
 ﻿namespace Foundation.MVC
 {
-    public abstract class BaseContoller<TM> where TM : BaseModel
+    public abstract class BaseContoller//<TM> where TM : BaseModel
     {
-        protected TM model;
-        public virtual void Setup(TM model)
+        protected BaseModel model;
+        public virtual void Setup(BaseModel model)
         {
             this.model = model;
         }

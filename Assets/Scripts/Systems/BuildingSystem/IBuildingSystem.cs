@@ -10,6 +10,8 @@ namespace Systems.BuildingSystem
         public BaseModel CurrentModel { get; }
         public event Action<BaseModel> OnBuildingStart;
         public event Action<GameObject> OnBuildingEnd;
+        public event Action<GameObject> OnBuildingCancelled;
+
 
         public IBuildingSystem SetStructureToBuild(BaseModel model) => this;
 
