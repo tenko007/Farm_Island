@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad0e759e932415394326faafbea62a9, type: 3}
+  m_Name: TomatoFarm
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4820828210557654774, guid: 759556f4096e84e40bf7b2af736e4e1c, type: 3}
+  level: 1
+  gainingResource: {fileID: 11400000, guid: 7c150262ae1efab4a853e3afd536289d, type: 2}
+  _levelDatas:
+  - prefab: {fileID: 4820828210557654774, guid: 759556f4096e84e40bf7b2af736e4e1c,
+      type: 3}
+    resourcePerSecond: 12
+    minQtyToCollect: 0
+    maxQtyToCollect: 100
+  - prefab: {fileID: 4820828210557654774, guid: 759556f4096e84e40bf7b2af736e4e1c,
+      type: 3}
+    resourcePerSecond: 14
+    minQtyToCollect: 0
+    maxQtyToCollect: 200

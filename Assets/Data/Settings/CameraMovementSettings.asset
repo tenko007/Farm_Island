@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634927605b4c4eb6aaab94c69184be66, type: 3}
   m_Name: CameraMovementSettings
   m_EditorClassIdentifier: 
-  movingSpeed: 3
+  movingSpeed: 5
   scalingSpeed: 60
   rotatingSpeed: 0.05
   minXCameraPosition: -30

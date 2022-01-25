@@ -1965,7 +1965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houseModel: {fileID: 11400000, guid: c372099d55e3bae46a8f7b467d3a3409, type: 2}
-  farmModel: {fileID: 11400000, guid: ca20fb9a2dfe1cf4bb843d50a65e4940, type: 2}
+  farmModel: {fileID: 11400000, guid: 9878abd28ec449a4b81fdb28a3544d51, type: 2}
 --- !u!1 &1650723198
 GameObject:
   m_ObjectHideFlags: 0
