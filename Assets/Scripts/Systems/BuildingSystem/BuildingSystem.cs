@@ -16,6 +16,8 @@ namespace Systems.BuildingSystem
         private Map map;
         private Transform groundTransform;
 
+        private Coroutine buildingCoroutine;
+
         public BuildingSystem(Map map)
         {
             this.map = map;
@@ -37,7 +39,7 @@ namespace Systems.BuildingSystem
             OnBuildingStart?.Invoke(CurrentModel);
             CurrentGameObject = Instantiate(WorldPoints.GetCameraCenterPositionOnWorldObject(), Vector3.zero);
             CurrentGameObject.transform.SetParent(groundTransform);
-            Services.GetService<ICoroutinesUpdater>().StartA(BuildProgress(CurrentGameObject));
+            buildingCoroutine = Services.GetService<ICoroutinesUpdater>().StartA(BuildProgress());
         }
 
         public void CancelBuild()
@@ -54,13 +56,14 @@ namespace Systems.BuildingSystem
 
         private void StopBuilding(bool cancel = false)
         {
-            Services.GetService<ICoroutinesUpdater>().Stop(BuildProgress(CurrentGameObject));
+            Services.GetService<ICoroutinesUpdater>().Stop(buildingCoroutine);
             
             if (cancel)
                 GameObject.Destroy(CurrentGameObject);
 
             CurrentGameObject = null;
             CurrentModel = null;
+            buildingCoroutine = null;
         }
         
         public GameObject Instantiate(Vector3 position, Vector3 rotation)
@@ -69,7 +72,7 @@ namespace Systems.BuildingSystem
             return GameObject.Instantiate(prefab, position, Quaternion.Euler(rotation));
         }
         
-        public IEnumerator BuildProgress(GameObject gameObject)
+        public IEnumerator BuildProgress()
         {
             for (;;)
             {

@@ -1,32 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Systems.BuildingSystem
 {
     public class CoroutinesUpdater : MonoBehaviour, ICoroutinesUpdater
     {
-        private Dictionary<IEnumerator, Coroutine> _coroutines;
-
-        private void Awake()
-        {
-            _coroutines = new Dictionary<IEnumerator, Coroutine>();
-        }
-
-        public void StartA(IEnumerator enumerator)
+        public Coroutine StartA(IEnumerator enumerator)
         {
             Coroutine newCoroutine = StartCoroutine(enumerator);
-            _coroutines.Add(enumerator, newCoroutine);
+            return newCoroutine;
         }
 
-        public void Stop(IEnumerator enumerator)
+        public void Stop(Coroutine coroutine)
         {
-            if (_coroutines.TryGetValue(enumerator, out var coroutine))
-            {
-                StopCoroutine(coroutine);
-                _coroutines.Remove(enumerator);
-            }
+            StopCoroutine(coroutine);
         }
     }
 }

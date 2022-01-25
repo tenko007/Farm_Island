@@ -19,13 +19,9 @@ namespace _TestBehaviors
             GUILayout.Space(100);
 
             if (GUILayout.Button("LOCK Input"))
-            {
                 inputStateManager.LockInput();
-            }
             else if (GUILayout.Button("UNLOCK Input"))
-            {
                 inputStateManager.UnlockInput();
-            }
         }
 #endif
     }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newLevel:
     AudioClip: {fileID: 8300000, guid: 1e04e4daab49e2c4aaa1590d157f5897, type: 3}
-    Volume: 0.3
+    Volume: 0.1
   addExperience:
     AudioClip: {fileID: 8300000, guid: d3a9001134ac8b14b80af2ca90344daa, type: 3}
     Volume: 0.5

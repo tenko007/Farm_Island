@@ -15,9 +15,9 @@ MonoBehaviour:
   movingSpeed: 3
   scalingSpeed: 60
   rotatingSpeed: 0.05
-  minXCameraPosition: -3
-  maxXCameraPosition: 3
-  minZCameraPosition: -3
-  maxZCameraPosition: 3
+  minXCameraPosition: -30
+  maxXCameraPosition: 30
+  minZCameraPosition: -30
+  maxZCameraPosition: 30
   minFieldOfView: 30
   maxFieldOfView: 100
