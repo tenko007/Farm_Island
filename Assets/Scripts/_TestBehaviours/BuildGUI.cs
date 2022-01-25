@@ -8,8 +8,8 @@ namespace _TestBehaviors
 {
     public class BuildGUI : MonoBehaviour
     {
-        [SerializeField] private ResourceGainerModel houseModel; 
-        [SerializeField] private ResourceGainerModel farmModel; 
+        [SerializeField] private BaseModel houseModel; 
+        [SerializeField] private BaseModel farmModel; 
 
         private void OnGUI()
         {
@@ -23,7 +23,7 @@ namespace _TestBehaviors
 
         private void Build(BaseModel model)
         {
-            Services.GetService<IBuildingSystem>().SetStructureToBuild(houseModel).StartBuild();
+            Services.GetService<IBuildingSystem>().SetStructureToBuild(model).StartBuild();
         }
 
         private void OldBuild(BaseModel model)

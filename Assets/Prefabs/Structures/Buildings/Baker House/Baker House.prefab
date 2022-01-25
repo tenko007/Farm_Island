@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4472807309331385096}
   - component: {fileID: 2087187158}
-  - component: {fileID: 187777690465107061}
   m_Layer: 0
   m_Name: Baker House
   m_TagString: Untagged
@@ -48,19 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 11400000, guid: c372099d55e3bae46a8f7b467d3a3409, type: 2}
---- !u!65 &187777690465107061
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87284540379137813}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &108586800893042280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,3 +4979,23 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1207860606932002846}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1207860606932037310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 1bbb91c8d96cb2446a07151ce95d1f0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1207860606932002846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &3273793721243634157
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207860606932037310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e36cf732b73e87f458b5e69d2c1f6417, type: 3}

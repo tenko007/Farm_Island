@@ -10,7 +10,7 @@ namespace Systems.PlantingSystem
     public class FarmModel : BaseModel
     {
         public List<ResourceObject> Container;
-        public Plant CurrentPlant;
-        public DateTime StartTime;
+        [HideInInspector] public Plant CurrentPlant;
+        [HideInInspector] public DateTime StartTime = DateTime.Now;
     }
 }

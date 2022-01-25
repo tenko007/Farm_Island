@@ -10,8 +10,8 @@ namespace UI
     public class UIManager : MonoBehaviour, IUIManager 
     {
         [Header("Main UI")] 
-        [SerializeField] private Button buildButton;
 
+        [Header("Popups")]
         [SerializeField] private UIBuildingActions buildingActions;
 
         [Header("Canvases")]

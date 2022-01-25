@@ -11,7 +11,7 @@ namespace Systems.BuildingSystem
     {
         [SerializeField] public int level;
         public Resource gainingResource;
-        private DateTime lastUseTime;
+        private DateTime lastUseTime = DateTime.Now;
         
         [SerializeField] private List<LevelData> _levelDatas;
 
