@@ -12,5 +12,6 @@ namespace Systems.PlantingSystem
         public List<ResourceObject> Container;
         [HideInInspector] public Plant CurrentPlant;
         [HideInInspector] public DateTime StartTime = DateTime.Now;
+        public override GameObject Prefab { get; }
     }
 }

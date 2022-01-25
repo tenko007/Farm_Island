@@ -20,7 +20,7 @@ namespace Systems.BuildingSystem
         public float ResourcePerSecond => _levelDatas[level - 1].resourcePerSecond;
         public int MinQtyToCollect => _levelDatas[level - 1].minQtyToCollect;
         public int MaxQtyToCollect => _levelDatas[level - 1].maxQtyToCollect;
-        public GameObject Prefab => _levelDatas[level - 1].prefab;
+        public override GameObject Prefab => _levelDatas[level - 1].prefab;
 
         public DateTime LastUsedTime
         {
