@@ -27,41 +27,10 @@ namespace Systems.BuildingSystem
         public event Action<GameObject> OnBuildingEnd;
         public event Action<GameObject> OnBuildingCancelled;
         
-        public IBuildingSystem SetStructureToBuild(BaseModel model)
+        public IBuildingSystem SetModelToBuild(BaseModel model)
         {
             this.CurrentModel = model;
             return this;
-        }
-
-        public void StartBuild()
-        {
-            OnBuildingStart?.Invoke(CurrentModel);
-            CurrentGameObject = Instantiate(WorldPoints.GetCameraCenterPositionOnWorldObject(), Vector3.zero);
-            buildingCoroutine = Services.GetService<ICoroutinesUpdater>().StartA(BuildProgress());
-        }
-
-        public void CancelBuild()
-        {
-            OnBuildingCancelled?.Invoke(CurrentGameObject);
-            StopBuilding(true);
-        }
-
-        public void EndBuild()
-        {
-            OnBuildingEnd?.Invoke(CurrentGameObject);
-            StopBuilding();
-        }
-
-        private void StopBuilding(bool cancel = false)
-        {
-            Services.GetService<ICoroutinesUpdater>().Stop(buildingCoroutine);
-            
-            if (cancel)
-                GameObject.Destroy(CurrentGameObject);
-
-            CurrentGameObject = null;
-            CurrentModel = null;
-            buildingCoroutine = null;
         }
         
         public GameObject Instantiate(Vector3 position, Vector3 rotation)
@@ -73,11 +42,43 @@ namespace Systems.BuildingSystem
             return CurrentGameObject;
         }
 
-        private IEnumerator BuildProgress()
+        public void StartBuild()
+        {
+            OnBuildingStart?.Invoke(CurrentModel);
+            CurrentGameObject = Instantiate(WorldPoints.GetCameraCenterPositionOnWorldObject(), Vector3.zero);
+            buildingCoroutine = Services.GetService<ICoroutinesUpdater>().StartA(BuildProcess());
+        }
+
+        public void CancelBuild()
+        {
+            OnBuildingCancelled?.Invoke(CurrentGameObject);
+            StopBuildingProcess(true);
+        }
+
+        public void EndBuild()
+        {
+            OnBuildingEnd?.Invoke(CurrentGameObject);
+            StopBuildingProcess();
+        }
+
+        private void StopBuildingProcess(bool cancel = false)
+        {
+            Services.GetService<ICoroutinesUpdater>().Stop(buildingCoroutine);
+            
+            if (cancel)
+                GameObject.Destroy(CurrentGameObject);
+
+            CurrentGameObject = null;
+            CurrentModel = null;
+            buildingCoroutine = null;
+        }
+
+        private IEnumerator BuildProcess()
         {
             for (;;)
             {
-                CurrentGameObject.transform.position = WorldPoints.GetCameraCenterPositionOnLayer(map.GroundLayer);
+                CurrentGameObject.transform.position = 
+                    WorldPoints.GetCameraCenterPositionOnLayer(map.GroundLayer);
                 yield return null;
             }
         }

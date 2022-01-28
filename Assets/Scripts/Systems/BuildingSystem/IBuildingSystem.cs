@@ -13,7 +13,7 @@ namespace Systems.BuildingSystem
         public event Action<GameObject> OnBuildingCancelled;
 
 
-        public IBuildingSystem SetStructureToBuild(BaseModel model) => this;
+        public IBuildingSystem SetModelToBuild(BaseModel model) => this;
 
         public void StartBuild();
         public void EndBuild();

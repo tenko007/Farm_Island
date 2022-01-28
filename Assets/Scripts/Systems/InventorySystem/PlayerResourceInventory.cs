@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using Systems.ResourcesSystem;
+using UnityEngine;
 using Utils.EventSystem;
 
 namespace Systems.InventorySystem
@@ -23,6 +24,8 @@ namespace Systems.InventorySystem
 
         public bool Add(Resource item, int count)
         {
+            Debug.Log($"{count.ToString()} pcs. of {item.Name}s added to PlayerResourceInventory!"); // TODO Remove
+
             if (Items.ContainsKey(item))
                 Items[item] += count;
             else

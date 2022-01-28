@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingSpeed: 5
   scalingSpeed: 60
-  rotatingSpeed: 0.05
+  rotatingSpeed: 0.02
   minXCameraPosition: -30
   maxXCameraPosition: 30
   minZCameraPosition: -30

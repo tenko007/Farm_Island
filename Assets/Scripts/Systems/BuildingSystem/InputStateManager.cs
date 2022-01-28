@@ -1,10 +1,10 @@
 ﻿namespace InputStateSystem
 {
-    public class InputStateManager : StateManager, IInputStateManager
+    public class BuildingStateManager : StateManager, IBuildingStateManager
     {
         private IState _locker;
 
-        public InputStateManager()
+        public BuildingStateManager()
         {
             this._locker = new LockInputState();
         }

@@ -23,13 +23,13 @@ namespace _TestBehaviors
 
         private void Build(BaseModel model)
         {
-            Services.GetService<IBuildingSystem>().SetStructureToBuild(model).StartBuild();
+            Services.GetService<IBuildingSystem>().SetModelToBuild(model).StartBuild();
         }
 
         private void OldBuild(BaseModel model)
         {
             var buildingSystem = Services.GetService<IBuildingSystem>();
-            buildingSystem.SetStructureToBuild(model);
+            buildingSystem.SetModelToBuild(model);
             buildingSystem.StartBuild();
         }
     }

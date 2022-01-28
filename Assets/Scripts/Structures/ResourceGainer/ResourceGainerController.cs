@@ -1,7 +1,6 @@
 ﻿using System;
 using Foundation.MVC;
 using Systems.InventorySystem;
-using Systems.ResourcesSystem;
 using UnityEngine;
 using Utils.Services;
 
@@ -19,8 +18,7 @@ namespace Systems.BuildingSystem
             if (coinsCount > 0)
             {
                 Model.LastUsedTime = currentTime;
-                Services.GetService<IPlayerResourceInventory>().Add(Model.GainingResource, GetResourceCount(currentTime));
-                Debug.Log($"{coinsCount.ToString()} pcs. of {Model.GainingResource.Name} added to PlayerResourceInventory!");
+                Services.GetService<IPlayerResourceInventory>().Add(Model.GainingResource, coinsCount);
             }
             return coinsCount;
         }
@@ -38,5 +36,19 @@ namespace Systems.BuildingSystem
             return resourceCount;
         }
 
+        public bool CanBeCollected(DateTime currentTime)
+        {
+            return GetResourceCount(currentTime) >= Model.MinQtyToCollect;
+        }
+        public bool CanBeCollected()
+        {
+            return CanBeCollected(DateTime.Now);
+        }
+
+        public void ShowCollectNotification()
+        {
+            Debug.Log("YOU NOW CAN COLLECT!!!");
+        }
     }
+  
 }

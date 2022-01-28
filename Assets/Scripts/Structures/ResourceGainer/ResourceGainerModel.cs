@@ -10,23 +10,19 @@ namespace Systems.BuildingSystem
     public class ResourceGainerModel : BaseModel
     {
         [SerializeField] private int level = 1;
-        public int Level => level;
         [SerializeField] private Resource gainingResource;
-        public Resource GainingResource => gainingResource;
-        private DateTime lastUseTime = DateTime.Now;
-        
+        [SerializeField] private GameObject collectNotificationPrefab;
         [SerializeField] private List<LevelData> _levelDatas;
+        public DateTime LastUsedTime = DateTime.Now;
 
+        public int Level => level;
         public float ResourcePerSecond => _levelDatas[level - 1].resourcePerSecond;
         public int MinQtyToCollect => _levelDatas[level - 1].minQtyToCollect;
         public int MaxQtyToCollect => _levelDatas[level - 1].maxQtyToCollect;
         public override GameObject Prefab => _levelDatas[level - 1].prefab;
+        public Resource GainingResource => gainingResource;
+        public GameObject CollectNotificationPrefab => collectNotificationPrefab;
 
-        public DateTime LastUsedTime
-        {
-            get => lastUseTime;
-            set => lastUseTime = value;
-        }
         
         [Serializable]
         public class LevelData

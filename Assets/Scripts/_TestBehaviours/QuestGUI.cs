@@ -19,12 +19,9 @@ namespace _TestBehaviors
                 Events.Invoke(new QuestCompletedEvent(new Quest(1, 100)));
             if (GUILayout.Button("Complete Quest for 1000000 exp"))
                 Events.Invoke(new QuestCompletedEvent(new Quest(1, 1000000)));
-            /*
-            else if (GUILayout.Button("Fail Quest"))
-            {
-                EventSystem.Invoke(new QuestFailedEvent(new Quest(1, 100)));
-            }
-            */
+            
+            //else if (GUILayout.Button("Fail Quest"))
+            //    EventSystem.Invoke(new QuestFailedEvent(new Quest(1, 100)));
         }
 #endif
     }

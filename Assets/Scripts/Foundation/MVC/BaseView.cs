@@ -10,7 +10,7 @@ namespace Foundation.MVC
         protected BaseContoller controller;
         private bool inited;
 
-        private void Start()
+        private void Awake()
         {
             if (!inited) 
                 Init(model);

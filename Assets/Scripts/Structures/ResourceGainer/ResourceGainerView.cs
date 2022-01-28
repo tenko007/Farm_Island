@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Foundation.MVC;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,6 +8,12 @@ namespace Systems.BuildingSystem
 {
     public class ResourceGainerView : BaseView, IPointerClickHandler
     {
+        private void Start()
+        {
+            StartCoroutine(NotificationWaiting()); 
+        }
+        
+        private ResourceGainerController Controller => (ResourceGainerController) controller;
         public override void Init(BaseModel newModel)
         {
             controller = new ResourceGainerController();
@@ -16,9 +23,26 @@ namespace Systems.BuildingSystem
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (((ResourceGainerController)controller).CollectResource(DateTime.Now) < 0)
+            int resourceCountGot = Controller.CollectResource(DateTime.Now);
+            if (resourceCountGot < 0)
                 ; // TODO Open UI Menu.
+            
+            if (resourceCountGot > 0)
+                StartCoroutine(NotificationWaiting());
         }
 
+        private IEnumerator NotificationWaiting()
+        {
+            for (;;)
+            {
+                if (Controller.CanBeCollected(DateTime.Now))
+                {
+                    Controller.ShowCollectNotification();
+                    yield break;
+                }
+
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
     }
 }

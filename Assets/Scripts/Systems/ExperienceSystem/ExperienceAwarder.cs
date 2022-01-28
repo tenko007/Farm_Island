@@ -12,21 +12,13 @@ namespace ExperienceSystem
             this.playerExperience = playerExperience;
             SubscribeEvents();
         }
-
         public void SubscribeEvents()
         {
-            Events.Subscribe<QuestCompletedEvent>(AddExperience);
+            Events.Subscribe<QuestCompletedEvent>(data =>
+                AddExperience(data.Quest.ExperienceCount));
             // more other ...
         }
-
-        private void AddExperience(QuestCompletedEvent questData)
-        {
-            AddExperience(questData.Quest.ExperienceCount);
-        }
-        
-        private void AddExperience(int count)
-        {
+        private void AddExperience(int count) =>
             playerExperience.AddExperience(count);
-        }
     }
 }
