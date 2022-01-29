@@ -27,8 +27,9 @@ namespace UI
         {
             Services.GetService<IBuildingSystem>().OnBuildingStart +=
                 _ => Instantiate(buildingActions.gameObject, PopupsCanvas.transform);
+            
             BuildButton.GetComponent<Button>().onClick.AddListener(() => Services.GetService<IBuildingSystem>()
-                .SetModelToBuild(houseModel).StartBuild());
+                .BuildModel(houseModel).StartBuild()); //TODO Remove it
         }
 
     }

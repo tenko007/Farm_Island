@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using Foundation.MVC;
-using Systems.PlantingSystem;
+using Structures;
+using Systems.BuildingSystem.States;
+using Systems.InventorySystem;
 using UnityEngine;
 using Utils;
-using Utils.Services;
 
 namespace Systems.BuildingSystem
 {
@@ -13,11 +14,11 @@ namespace Systems.BuildingSystem
         public BaseModel CurrentModel { get; private set; }
         public GameObject CurrentGameObject { get; private set; }
 
-        private Map map;
+        public Map map;
         private Transform groundTransform;
 
-        private Coroutine buildingCoroutine;
-
+        private IBuildingState state;
+        
         public BuildingSystem(Map map)
         {
             this.map = map;
@@ -27,12 +28,29 @@ namespace Systems.BuildingSystem
         public event Action<GameObject> OnBuildingEnd;
         public event Action<GameObject> OnBuildingCancelled;
         
-        public IBuildingSystem SetModelToBuild(BaseModel model)
+        public IBuildingSystem BuildModel(BaseModel model)
         {
             this.CurrentModel = model;
+            CurrentGameObject = Instantiate();
+            state = new NewBuildingState(this);
             return this;
         }
-        
+
+        public IBuildingSystem BuildStructureItem(StructureItem structureItem)
+        {
+            BuildModel(structureItem.Item);
+            state = new BuildFromInventoryState(this, structureItem);
+            return this;
+        }
+
+        public IBuildingSystem MoveObject(GameObject gameObject)
+        {
+            CurrentGameObject = gameObject;
+            state = new MoveBuildingState(this);
+            return this;
+        }
+
+        public GameObject Instantiate() => Instantiate(Vector3.zero, Vector3.zero);
         public GameObject Instantiate(Vector3 position, Vector3 rotation)
         {
             var prefab = CurrentModel.Prefab;
@@ -45,35 +63,22 @@ namespace Systems.BuildingSystem
         public void StartBuild()
         {
             OnBuildingStart?.Invoke(CurrentModel);
-            CurrentGameObject = Instantiate(WorldPoints.GetCameraCenterPositionOnWorldObject(), Vector3.zero);
-            buildingCoroutine = Services.GetService<ICoroutinesUpdater>().StartA(BuildProcess());
+            state.StartBuild();
         }
-
+        
         public void CancelBuild()
         {
             OnBuildingCancelled?.Invoke(CurrentGameObject);
-            StopBuildingProcess(true);
+            state.CancelBuild();
         }
 
         public void EndBuild()
         {
             OnBuildingEnd?.Invoke(CurrentGameObject);
-            StopBuildingProcess();
+            state.EndBuild();
         }
-
-        private void StopBuildingProcess(bool cancel = false)
-        {
-            Services.GetService<ICoroutinesUpdater>().Stop(buildingCoroutine);
-            
-            if (cancel)
-                GameObject.Destroy(CurrentGameObject);
-
-            CurrentGameObject = null;
-            CurrentModel = null;
-            buildingCoroutine = null;
-        }
-
-        private IEnumerator BuildProcess()
+        
+        public IEnumerator BuildProcess()
         {
             for (;;)
             {

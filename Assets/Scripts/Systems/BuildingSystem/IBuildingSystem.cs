@@ -1,5 +1,6 @@
 ﻿using System;
 using Foundation.MVC;
+using Systems.InventorySystem;
 using UnityEngine;
 using Utils.Services;
 
@@ -13,7 +14,9 @@ namespace Systems.BuildingSystem
         public event Action<GameObject> OnBuildingCancelled;
 
 
-        public IBuildingSystem SetModelToBuild(BaseModel model) => this;
+        public IBuildingSystem BuildModel(BaseModel model);
+        public IBuildingSystem BuildStructureItem(StructureItem structureItem);
+        public IBuildingSystem MoveObject(GameObject gameObject);
 
         public void StartBuild();
         public void EndBuild();
