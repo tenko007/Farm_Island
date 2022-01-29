@@ -6,7 +6,7 @@ using Utils.Services;
 
 namespace Systems.BuildingSystem
 {
-    public class ResourceGainerController : BaseContoller
+    public class ResourceGainerController : StructureController
     {
         protected ResourceGainerModel Model => (ResourceGainerModel)model;
 

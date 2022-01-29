@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Systems.BuildingSystem
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Structures/ResourceGainer")]
-    public class ResourceGainerModel : Structure
+    public class ResourceGainerModel : StructureModel
     {
         [SerializeField] private int level = 1;
         [SerializeField] private Resource gainingResource;

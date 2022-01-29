@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Structures.ResourceGainerFluent
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Structures/ResourceGainerFluent")]
-    public class ResourceGainerFluentModel : Structure
+    public class ResourceGainerFluentModel : StructureModel
     {
         [SerializeField] private  GameObject prefab;
         public override GameObject Prefab => prefab;

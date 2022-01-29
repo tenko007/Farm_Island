@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Systems.PlantingSystem
 {
-    public class FarmView : BaseView
+    public class FarmView : StructureView
     {
 
     }

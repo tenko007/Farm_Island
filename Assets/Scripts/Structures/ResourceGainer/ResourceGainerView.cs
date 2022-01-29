@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace Systems.BuildingSystem
 {
-    public class ResourceGainerView : BaseView, IPointerClickHandler
+    public class ResourceGainerView : StructureView, IPointerClickHandler
     {
         private void Start()
         {

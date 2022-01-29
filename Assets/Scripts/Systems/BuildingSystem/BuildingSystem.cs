@@ -46,6 +46,7 @@ namespace Systems.BuildingSystem
         public IBuildingSystem MoveObject(GameObject gameObject)
         {
             CurrentGameObject = gameObject;
+            CurrentModel = CurrentGameObject.GetComponent<StructureView>().Model;
             state = new MoveBuildingState(this);
             return this;
         }

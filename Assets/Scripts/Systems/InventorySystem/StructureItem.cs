@@ -4,20 +4,20 @@ using UnityEngine;
 
 namespace Systems.InventorySystem
 {
-    public class StructureItem : IItem<Structure>
+    public class StructureItem : IItem<StructureModel>
     {
-        private Structure _structure;
+        private StructureModel _structureModel;
         public int Count { get; }
 
-        public string Name => _structure.Name;
-        public string Description => _structure.Description;
-        public Sprite Icon => _structure.Icon;
-        public Structure Item => _structure;
-        public GameObject Prefab => _structure.Prefab;
+        public string Name => _structureModel.Name;
+        public string Description => _structureModel.Description;
+        public Sprite Icon => _structureModel.Icon;
+        public StructureModel Item => _structureModel;
+        public GameObject Prefab => _structureModel.Prefab;
         
-        public StructureItem(Structure structure, int count)
+        public StructureItem(StructureModel structureModel, int count)
         {
-            this._structure = structure;
+            this._structureModel = structureModel;
             this.Count = count;
         }
     }

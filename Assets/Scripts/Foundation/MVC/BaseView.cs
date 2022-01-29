@@ -7,6 +7,7 @@ namespace Foundation.MVC
     public abstract class BaseView : MonoBehaviour 
     {
         [SerializeField] private BaseModel model;
+        public BaseModel Model => model;
         protected BaseContoller controller;
         private bool inited;
 
