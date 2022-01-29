@@ -3,12 +3,27 @@ using Foundation.MVC;
 using Systems.InventorySystem;
 using UnityEngine;
 using Utils.Services;
+using Utils.UpdateSystem;
 
 namespace Systems.BuildingSystem
 {
-    public class ResourceGainerController : StructureController
+    public class ResourceGainerController : StructureController, IUpdatable
     {
+        public event Action ShowCollectNotification;
+        
+        private bool isNotificationShown = false;
         protected ResourceGainerModel Model => (ResourceGainerModel)model;
+
+        public override void Setup(BaseModel model)
+        {
+            base.Setup(model);
+            Services.GetService<IUpdateSystem>().Add(this);
+        }
+
+        public override void Dispose()
+        {
+            Services.GetService<IUpdateSystem>().Remove(this);
+        }
 
         public int CollectResource(DateTime currentTime)
         {
@@ -45,9 +60,11 @@ namespace Systems.BuildingSystem
             return CanBeCollected(DateTime.Now);
         }
 
-        public void ShowCollectNotification()
+        public void Update()
         {
-            Debug.Log("YOU NOW CAN COLLECT!!!");
+            if (!isNotificationShown)
+                if (CanBeCollected(DateTime.Now))
+                    ShowCollectNotification.Invoke();
         }
     }
   

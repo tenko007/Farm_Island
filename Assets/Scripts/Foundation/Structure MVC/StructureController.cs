@@ -1,6 +1,9 @@
-﻿namespace Foundation.MVC
+﻿using System;
+
+namespace Foundation.MVC
 {
-    public abstract class StructureController : BaseContoller
+    public abstract class StructureController : BaseContoller, IDisposable
     {
+        public abstract void Dispose();
     }
 }

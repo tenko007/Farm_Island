@@ -46,7 +46,7 @@ namespace Systems.BuildingSystem
         public IBuildingSystem MoveObject(GameObject gameObject)
         {
             CurrentGameObject = gameObject;
-            CurrentModel = CurrentGameObject.GetComponent<StructureView>().Model;
+            CurrentModel = CurrentGameObject.GetComponent<IBaseView>().Model;
             state = new MoveBuildingState(this);
             return this;
         }
@@ -55,7 +55,9 @@ namespace Systems.BuildingSystem
         public GameObject Instantiate(Vector3 position, Vector3 rotation)
         {
             var prefab = CurrentModel.Prefab;
-            prefab.GetComponent<BaseView>().Init(CurrentModel);
+            if (prefab.GetComponent<IBaseView>() == null)
+                Debug.Log("sadfdasf");
+            prefab.GetComponent<IBaseView>().Init(CurrentModel);
             CurrentGameObject = GameObject.Instantiate(prefab, position, Quaternion.Euler(rotation));
             CurrentGameObject.transform.SetParent(groundTransform);
             return CurrentGameObject;

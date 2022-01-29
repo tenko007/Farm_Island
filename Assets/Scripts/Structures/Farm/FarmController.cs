@@ -30,5 +30,10 @@ namespace Systems.PlantingSystem
             var resultRO = Model.CurrentPlant.PlantResult;
             Services.GetService<IPlayerResourceInventory>().Add(resultRO.Resource, resultRO.Count);
         }
+
+        public override void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 using Utils.EventSystem;
 using Utils.Services;
@@ -8,8 +9,8 @@ namespace ExperienceSystem.UI
     public class PlayerLevelInfoPanel : MonoBehaviour
     {
         [SerializeField] private Image ExperienceLine;
-        [SerializeField] private Text ExperienceText;
-        [SerializeField] private Text LevelText;
+        [SerializeField] private TMP_Text ExperienceText;
+        [SerializeField] private TMP_Text LevelText;
         private void Start()
         {
             Events.Subscribe<PlayerGotNewLevelEvent>(UpdateLevel);

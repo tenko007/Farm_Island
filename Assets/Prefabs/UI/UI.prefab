@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ca3d75af1e406fb954ef68f17cb870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  houseModel: {fileID: 11400000, guid: c372099d55e3bae46a8f7b467d3a3409, type: 2}
+  houseModel: {fileID: 11400000, guid: ca20fb9a2dfe1cf4bb843d50a65e4940, type: 2}
   buildingActions: {fileID: 3537985858195653829, guid: 34b7f4bf667fc7b4899a702c33ae8e5c,
     type: 3}
   MainCanvas: {fileID: 8913823781119918458}

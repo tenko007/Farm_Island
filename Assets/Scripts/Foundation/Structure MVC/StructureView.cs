@@ -4,7 +4,8 @@ using Utils.Services;
 
 namespace Foundation.MVC
 {
-    public abstract class StructureView : BaseView, IDragHandler, IBeginDragHandler
+    public abstract class StructureView<T> : BaseView<T>, IDragHandler, IBeginDragHandler
+        where T : StructureController
     {
         public void OnBeginDrag(PointerEventData eventData)
         {

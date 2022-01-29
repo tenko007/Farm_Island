@@ -8,6 +8,7 @@ using UnityEngine;
 using Utils;
 using Utils.EventSystem;
 using Utils.Services;
+using Utils.UpdateSystem;
 
 public class GameBootstrap : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class GameBootstrap : MonoBehaviour
         Services.RegisterService<IPlayerResourceInventory>(new PlayerResourceInventory());
         Services.RegisterService<IBuildingSystem>(new BuildingSystem(map));
         Services.RegisterService<ICoroutinesUpdater>(Instantiate(new GameObject().AddComponent<CoroutinesUpdater>(), this.transform));
+        Services.RegisterService<IUpdateSystem>(Instantiate(new GameObject().AddComponent<UpdateSystem>(), this.transform));
     }
     
     private void SetupUtils()

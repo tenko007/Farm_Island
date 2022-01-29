@@ -6,43 +6,27 @@ using UnityEngine.EventSystems;
 
 namespace Systems.BuildingSystem
 {
-    public class ResourceGainerView : StructureView, IPointerClickHandler
+    public class ResourceGainerView : StructureView<ResourceGainerController>, IPointerClickHandler
     {
-        private void Start()
-        {
-            StartCoroutine(NotificationWaiting()); 
-        }
-        
-        private ResourceGainerController Controller => (ResourceGainerController) controller;
         public override void Init(BaseModel newModel)
         {
             controller = new ResourceGainerController();
             base.Init(newModel);
             ((ResourceGainerModel)newModel).LastUsedTime = DateTime.Now;
+            controller.ShowCollectNotification += ShowCollectNotification;
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            int resourceCountGot = Controller.CollectResource(DateTime.Now);
+            int resourceCountGot = controller.CollectResource(DateTime.Now);
             if (resourceCountGot < 0)
                 ; // TODO Open UI Menu.
             
-            if (resourceCountGot > 0)
-                StartCoroutine(NotificationWaiting());
         }
-
-        private IEnumerator NotificationWaiting()
+        
+        public void ShowCollectNotification()
         {
-            for (;;)
-            {
-                if (Controller.CanBeCollected(DateTime.Now))
-                {
-                    Controller.ShowCollectNotification();
-                    yield break;
-                }
-
-                yield return new WaitForSeconds(0.5f);
-            }
+            Debug.Log("YOU NOW CAN COLLECT!!!");
         }
     }
 }
