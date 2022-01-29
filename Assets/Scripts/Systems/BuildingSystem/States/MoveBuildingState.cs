@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using Utils.Services;
+using Utils.EventSystem;
 
 namespace Systems.BuildingSystem.States
 {
     public class MoveBuildingState : IBuildingState
     {
         private readonly BuildingSystem _buildingSystem;
-        private Coroutine buildingCoroutine;
         private Vector3 prevPosition;
         
         public MoveBuildingState(BuildingSystem buildingSystem)
@@ -17,24 +17,19 @@ namespace Systems.BuildingSystem.States
         public void StartBuild()
         {
             prevPosition = _buildingSystem.CurrentGameObject.transform.position;
-            buildingCoroutine = Services.GetService<ICoroutinesUpdater>().StartA(_buildingSystem.BuildProcess());
         }
 
         public void EndBuild()
         {
-            StopBuildingProcess();
-            // TODO Event - Building was moved
+            Events.Invoke<BuildingMoved>(new BuildingMoved(
+                _buildingSystem.CurrentGameObject.gameObject, 
+                prevPosition, 
+                _buildingSystem.CurrentGameObject.transform.position));
         }
 
         public void CancelBuild()
         {
-            StopBuildingProcess();
             _buildingSystem.CurrentGameObject.transform.position = prevPosition;
-        }
-        
-        public void StopBuildingProcess()
-        {            
-            Services.GetService<ICoroutinesUpdater>().Stop(buildingCoroutine);
         }
     }
 }

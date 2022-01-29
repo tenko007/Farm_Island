@@ -3203,6 +3203,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: NaN
       objectReference: {fileID: 0}
+    - target: {fileID: 6977905532684293636, guid: b3418d2f40af2c24daaff6a124a2e595,
+        type: 3}
+      propertyPath: houseModel
+      value: 
+      objectReference: {fileID: 11400000, guid: c372099d55e3bae46a8f7b467d3a3409,
+        type: 2}
     - target: {fileID: 7160465188483593384, guid: b3418d2f40af2c24daaff6a124a2e595,
         type: 3}
       propertyPath: m_AnchorMax.y

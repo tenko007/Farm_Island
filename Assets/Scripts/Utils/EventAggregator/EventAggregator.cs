@@ -25,8 +25,7 @@ namespace Utils.EventSystem
                 throw new NullReferenceException();
 
             if (EventHandlers.ContainsKey(typeof(T)))
-                if (EventHandlers[typeof(T)].Contains(eventHandler)) // TODO Do i need this line?
-                    EventHandlers[typeof(T)].Remove(eventHandler);
+                EventHandlers[typeof(T)].Remove(eventHandler);
         }
 
         public void UnsubscribeAll<T>() where T : EventArgs

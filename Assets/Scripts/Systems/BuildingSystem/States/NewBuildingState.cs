@@ -9,7 +9,6 @@ namespace Systems.BuildingSystem.States
     public class NewBuildingState : IBuildingState
     {
         private readonly BuildingSystem _buildingSystem;
-        private Coroutine buildingCoroutine;
 
         public NewBuildingState(BuildingSystem buildingSystem)
         {
@@ -17,24 +16,16 @@ namespace Systems.BuildingSystem.States
         }
         public void StartBuild()
         {
-            buildingCoroutine = Services.GetService<ICoroutinesUpdater>().StartA(_buildingSystem.BuildProcess());
         }
 
         public void EndBuild()
         {
-            StopBuildingProcess();
             // TODO: Remove Structure's price from Player Inventory
         }
 
         public void CancelBuild()
         {
-            StopBuildingProcess();
             GameObject.Destroy(_buildingSystem.CurrentGameObject);
-        }
-        
-        public void StopBuildingProcess()
-        {            
-            Services.GetService<ICoroutinesUpdater>().Stop(buildingCoroutine);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Systems.InventorySystem;
 using UnityEngine;
 using Utils.Services;
+using Utils.UpdateSystem;
 
 namespace Systems.BuildingSystem.States
 {
@@ -18,24 +19,16 @@ namespace Systems.BuildingSystem.States
 
         public void StartBuild()
         {
-            buildingCoroutine = Services.GetService<ICoroutinesUpdater>().StartA(_buildingSystem.BuildProcess());
         }
 
         public void EndBuild()
         {
-            StopBuildingProcess();
             // TODO: Delete from PlayerStructuresInventory;
         }
 
         public void CancelBuild()
         {
-            StopBuildingProcess();
             GameObject.Destroy(_buildingSystem.CurrentGameObject);
-        }
-
-        public void StopBuildingProcess()
-        {            
-            Services.GetService<ICoroutinesUpdater>().Stop(buildingCoroutine);
         }
     }
 }

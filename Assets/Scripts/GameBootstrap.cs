@@ -51,7 +51,6 @@ public class GameBootstrap : MonoBehaviour
         Services.RegisterService<IExperienceAwarder>(new ExperienceAwarder(playerExperience));
         Services.RegisterService<IPlayerResourceInventory>(new PlayerResourceInventory());
         Services.RegisterService<IBuildingSystem>(new BuildingSystem(map));
-        Services.RegisterService<ICoroutinesUpdater>(Instantiate(new GameObject().AddComponent<CoroutinesUpdater>(), this.transform));
         Services.RegisterService<IUpdateSystem>(Instantiate(new GameObject().AddComponent<UpdateSystem>(), this.transform));
     }
     

@@ -8,8 +8,6 @@ namespace ExperienceSystem
         public int CurrentExperience { get; }
         public int ExpToNextLevel { get; }
         
-        // TODO Add property: Player ?
-
         public PlayerGotExperienceEvent(int expCount, int currentExperience, int expToNextLevel)
         {
             this.expCount = expCount;

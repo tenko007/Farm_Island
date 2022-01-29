@@ -63,9 +63,13 @@ namespace Systems.BuildingSystem
         public void Update()
         {
             if (!isNotificationShown)
+            {
                 if (CanBeCollected(DateTime.Now))
+                {
                     ShowCollectNotification.Invoke();
+                    isNotificationShown = true;
+                }
+            }
         }
     }
-  
 }

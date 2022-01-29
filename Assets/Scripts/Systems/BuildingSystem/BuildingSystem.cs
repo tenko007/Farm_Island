@@ -6,10 +6,12 @@ using Systems.BuildingSystem.States;
 using Systems.InventorySystem;
 using UnityEngine;
 using Utils;
+using Utils.Services;
+using Utils.UpdateSystem;
 
 namespace Systems.BuildingSystem
 {
-    public class BuildingSystem : IBuildingSystem
+    public class BuildingSystem : IBuildingSystem, IUpdatable
     {
         public BaseModel CurrentModel { get; private set; }
         public GameObject CurrentGameObject { get; private set; }
@@ -55,8 +57,6 @@ namespace Systems.BuildingSystem
         public GameObject Instantiate(Vector3 position, Vector3 rotation)
         {
             var prefab = CurrentModel.Prefab;
-            if (prefab.GetComponent<IBaseView>() == null)
-                Debug.Log("sadfdasf");
             prefab.GetComponent<IBaseView>().Init(CurrentModel);
             CurrentGameObject = GameObject.Instantiate(prefab, position, Quaternion.Euler(rotation));
             CurrentGameObject.transform.SetParent(groundTransform);
@@ -67,28 +67,36 @@ namespace Systems.BuildingSystem
         {
             OnBuildingStart?.Invoke(CurrentModel);
             state.StartBuild();
+            Services.GetService<IUpdateSystem>().Add(this);
         }
         
         public void CancelBuild()
         {
             OnBuildingCancelled?.Invoke(CurrentGameObject);
+            StopBuildingProcess();
             state.CancelBuild();
         }
 
         public void EndBuild()
         {
             OnBuildingEnd?.Invoke(CurrentGameObject);
+            StopBuildingProcess();
             state.EndBuild();
         }
         
-        public IEnumerator BuildProcess()
+        public void BuildProcess()
         {
-            for (;;)
-            {
-                CurrentGameObject.transform.position = 
-                    WorldPoints.GetCameraCenterPositionOnLayer(map.GroundLayer);
-                yield return null;
-            }
+            CurrentGameObject.transform.position = 
+                WorldPoints.GetCameraCenterPositionOnLayer(map.GroundLayer);
+        }
+        public void StopBuildingProcess()
+        {           
+            Services.GetService<IUpdateSystem>().Remove(this);
+        }
+        
+        public void Update()
+        {
+            BuildProcess();
         }
     }
 } 

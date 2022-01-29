@@ -17,11 +17,11 @@ namespace Utils.UpdateSystem
 
         private void Update()
         {
-            foreach (var updatable in UpdateList)
-                updatable.Update();
-
             foreach (var element in RemoveList)
                 UpdateList.Remove(element);
+            
+            foreach (var updatable in UpdateList)
+                updatable.Update();
             
             RemoveList.Clear();
         }
