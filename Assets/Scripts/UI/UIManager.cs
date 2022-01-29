@@ -11,6 +11,7 @@ namespace UI
     {
         [Header("Temp prefabs")]
         [SerializeField] private BaseModel houseModel;
+        
         [Header("Main UI")] 
 
         [Header("Popups")]
