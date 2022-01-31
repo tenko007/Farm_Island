@@ -2,7 +2,7 @@
 
 namespace Structures.ResourceGainerFluent
 {
-    public class ResourceGainerFluentView : StructureView<ResourceGainerFluentController>
+    public class ResourceGainerFluentView : BuildingView<ResourceGainerFluentController>
     {
         
     }

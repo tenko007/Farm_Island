@@ -8,7 +8,7 @@ using Utils.Services;
 
 namespace Systems.PlantingSystem
 {
-    public class FarmController : StructureController
+    public class FarmController : BuildingController
     {
         public FarmModel Model => (FarmModel) model;
         public void Plant(Seed seed, DateTime startTime)

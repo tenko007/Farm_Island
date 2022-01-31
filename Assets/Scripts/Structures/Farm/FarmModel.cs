@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Systems.PlantingSystem
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Structures/Farm")]
-    public class FarmModel : StructureModel
+    public class FarmModel : BuildingModel
     {
         public List<ResourceObject> Container;
         [HideInInspector] public Plant CurrentPlant;

@@ -6,14 +6,28 @@ using UnityEngine.EventSystems;
 
 namespace Systems.BuildingSystem
 {
-    public class ResourceGainerView : StructureView<ResourceGainerController>, IPointerClickHandler
+    public class ResourceGainerView : BuildingView<ResourceGainerController>, IPointerClickHandler
     {
+        private GameObject NotificationObject;
+        
         public override void Init(BaseModel newModel)
         {
             controller = new ResourceGainerController();
             base.Init(newModel);
             ((ResourceGainerModel)newModel).LastUsedTime = DateTime.Now;
-            controller.ShowCollectNotification += ShowCollectNotification;
+
+        }
+
+        private void Start()
+        {
+            controller.OnCanBeCollected += OnCanBeCollected;
+            controller.OnCollected += OnCollected;
+        }
+
+        private void OnDestroy()
+        {
+            controller.OnCanBeCollected -= OnCanBeCollected;
+            controller.OnCollected -= OnCollected;
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -24,9 +38,21 @@ namespace Systems.BuildingSystem
             
         }
         
-        public void ShowCollectNotification()
+        private void OnCanBeCollected()
         {
-            Debug.Log("YOU NOW CAN COLLECT!!!");
+            ShowCollectableProp();
+        }
+
+        private void ShowCollectableProp()
+        {
+            NotificationObject = GameObject.Instantiate((
+                (ResourceGainerModel) Model).CollectNotificationPrefab, this.transform, false);
+            NotificationObject.transform.localPosition = Vector3.up * 5;
+        }
+        
+        private void OnCollected()
+        {
+            Destroy(NotificationObject);
         }
     }
 }

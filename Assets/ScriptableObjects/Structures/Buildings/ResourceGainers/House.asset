@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad0e759e932415394326faafbea62a9, type: 3}
+  m_Name: House
+  m_EditorClassIdentifier: 
+  name: House
+  description: 
+  icon: {fileID: 0}
+  level: 1
+  gainingResource: {fileID: 11400000, guid: 7ae9efa406318f8469bd855cf64a819e, type: 2}
+  collectNotificationPrefab: {fileID: 7094029973659252846, guid: 4cdda724870120542a98676a53b36b6d,
+    type: 3}
+  _levelDatas:
+  - prefab: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e, type: 3}
+    resourcePerSecond: 1
+    minQtyToCollect: 2
+    maxQtyToCollect: 10
+  - prefab: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e, type: 3}
+    resourcePerSecond: 2
+    minQtyToCollect: 4
+    maxQtyToCollect: 12
+  - prefab: {fileID: 87284540379137813, guid: 203e953de0dad744083453eef65a4a3e, type: 3}
+    resourcePerSecond: 4
+    minQtyToCollect: 5
+    maxQtyToCollect: 15

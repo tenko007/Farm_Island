@@ -10,19 +10,19 @@ namespace Systems.ResourcesSystem
     [Serializable]
     public class StructureShopItem : IShopItem
     {
-        [SerializeField] private StructureModel structure;
+        [SerializeField] private BuildingModel building;
         [SerializeField] private int price;
         [SerializeField] private int minLevelToBuy;
 
-        public StructureModel Structure => structure;
+        public BuildingModel Building => building;
         public int Price => price;
         public int MinLevelToBuy => minLevelToBuy;
-        public Sprite Icon => structure.Icon;
-        public string Name => structure.name;
+        public Sprite Icon => building.Icon;
+        public string Name => building.name;
 
         public void Buy(int count)
         {
-            Services.GetService<IBuildingSystem>().BuildModel(Structure).StartBuild();
+            Services.GetService<IBuildingSystem>().BuildModel(Building).StartBuild();
         }
 
         public bool CanBeBought()

@@ -7,9 +7,10 @@ using Utils.UpdateSystem;
 
 namespace Systems.BuildingSystem
 {
-    public class ResourceGainerController : StructureController, IUpdatable
+    public class ResourceGainerController : BuildingController, IUpdatable
     {
-        public event Action ShowCollectNotification;
+        public event Action OnCanBeCollected;
+        public event Action OnCollected;
         
         private bool isNotificationShown = false;
         protected ResourceGainerModel Model => (ResourceGainerModel)model;
@@ -34,6 +35,7 @@ namespace Systems.BuildingSystem
             {
                 Model.LastUsedTime = currentTime;
                 Services.GetService<IPlayerResourceInventory>().Add(Model.GainingResource, coinsCount);
+                HideCollectNotification();
             }
             return coinsCount;
         }
@@ -63,12 +65,24 @@ namespace Systems.BuildingSystem
         public void Update()
         {
             if (!isNotificationShown)
-            {
                 if (CanBeCollected(DateTime.Now))
-                {
-                    ShowCollectNotification.Invoke();
-                    isNotificationShown = true;
-                }
+                    ShowCollectNotification();
+        }
+
+        public void ShowCollectNotification()
+        {
+            if (!isNotificationShown)
+            {
+                OnCanBeCollected?.Invoke();
+                isNotificationShown = true;
+            }
+        }
+        public void HideCollectNotification()
+        {
+            if (isNotificationShown)
+            {
+                OnCollected?.Invoke();
+                isNotificationShown = false;
             }
         }
     }

@@ -2,7 +2,7 @@
 
 namespace Structures.ResourceGainerFluent
 {
-    public class ResourceGainerFluentController : StructureController
+    public class ResourceGainerFluentController : BuildingController
     {
         public override void Dispose()
         {
