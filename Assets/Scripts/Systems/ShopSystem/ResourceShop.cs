@@ -7,7 +7,8 @@ namespace Systems.ResourcesSystem
     [CreateAssetMenu(menuName = "ScriptableObjects/Shop/ResourceShop")]
     public class ResourceShop : ScriptableObject, IShop<ResourceShopItem>
     {
-        public List<ResourceShopItem> Items { get; }
+        [SerializeField] private List<ResourceShopItem> items;
+        public List<ResourceShopItem> Items => items;
         public void Buy(ResourceShopItem item, int count)
         {
             item.Buy(count);

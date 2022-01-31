@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad0e759e932415394326faafbea62a9, type: 3}
   m_Name: WheatFarm
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4820828210557654774, guid: 759556f4096e84e40bf7b2af736e4e1c, type: 3}
+  name: Wheat Farm
+  description: 
+  icon: {fileID: 21300064, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
   level: 1
   gainingResource: {fileID: 11400000, guid: a90612c9737a1de47a0368fdc385b712, type: 2}
+  collectNotificationPrefab: {fileID: 0}
   _levelDatas:
   - prefab: {fileID: 4820828210557654774, guid: 759556f4096e84e40bf7b2af736e4e1c,
       type: 3}

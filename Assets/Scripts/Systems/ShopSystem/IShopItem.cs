@@ -1,4 +1,6 @@
-﻿namespace Systems.ResourcesSystem
+﻿using UnityEngine;
+
+namespace Systems.ResourcesSystem
 {
     public interface IShopItem
     {

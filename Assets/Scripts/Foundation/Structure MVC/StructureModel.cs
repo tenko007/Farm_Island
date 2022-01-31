@@ -5,8 +5,11 @@ namespace Foundation.MVC
 {
     public abstract class StructureModel : BaseModel, IStructure
     {
-        public string Name { get; }
-        public string Description { get; }
-        public Sprite Icon { get; }
+        [SerializeField] private string name;
+        [SerializeField] private string description;
+        [SerializeField] private Sprite icon;
+        public string Name => name;
+        public string Description => description;
+        public Sprite Icon => icon;
     }
 }

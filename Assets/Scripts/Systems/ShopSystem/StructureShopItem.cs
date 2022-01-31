@@ -1,25 +1,28 @@
 ﻿using System;
+using Foundation.MVC;
+using Systems.BuildingSystem;
 using UnityEngine;
 using Utils.EventSystem;
+using Utils.Services;
 
 namespace Systems.ResourcesSystem
 {
     [Serializable]
-    public class ResourceShopItem : IShopItem
+    public class StructureShopItem : IShopItem
     {
-        [SerializeField] private Resource resource;
+        [SerializeField] private StructureModel structure;
         [SerializeField] private int price;
         [SerializeField] private int minLevelToBuy;
 
-        public Resource Resource => resource;
+        public StructureModel Structure => structure;
         public int Price => price;
         public int MinLevelToBuy => minLevelToBuy;
-        public Sprite Icon => resource.Icon;
-        public string Name => resource.Name;
+        public Sprite Icon => structure.Icon;
+        public string Name => structure.name;
 
         public void Buy(int count)
         {
-            Events.Invoke(new ResourceBoughtEvent(new ResourceObject(Resource,count),Price*count));
+            Services.GetService<IBuildingSystem>().BuildModel(Structure).StartBuild();
         }
 
         public bool CanBeBought()
