@@ -21,7 +21,8 @@ namespace Systems.ResourcesSystem
         public void InitShopItemView()
         {
             if (IconImage != null)
-                IconImage.sprite = Item.Icon;
+                if (Item.Icon != null)
+                    IconImage.sprite = Item.Icon;
             
             if (NameTextBox != null)
                 NameTextBox.text = Item.Name;

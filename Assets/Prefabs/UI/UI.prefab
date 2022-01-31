@@ -52,7 +52,7 @@ MonoBehaviour:
     type: 3}
   LevelupPopupPrefab: {fileID: 8923115819810734334, guid: 5e106308a8942dd499da171dbd765989,
     type: 3}
-  StructureShopWindow: {fileID: 3860197786873962723, guid: a18b3f11e11015c4d8acf17ed8807dd2,
+  StructureShopWindow: {fileID: 4268035240679391164, guid: 940a4d5456b6dc0429aa1ff47bee9e65,
     type: 3}
   MainCanvas: {fileID: 8913823781119918458}
   NotificationsCanvas: {fileID: 8913823781338834465}

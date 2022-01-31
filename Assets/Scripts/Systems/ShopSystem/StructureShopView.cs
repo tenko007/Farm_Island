@@ -19,6 +19,11 @@ namespace Systems.ResourcesSystem
             Services.GetService<IBuildingSystem>().OnBuildingStart += Close;
         }
 
+        private void OnDestroy()
+        {
+            Close(null);
+        }
+
         private void InitShopView()
         {
             foreach (var item in shop.Items)
