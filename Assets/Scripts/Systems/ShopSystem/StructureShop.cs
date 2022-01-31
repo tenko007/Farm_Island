@@ -1,22 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Systems.InventorySystem;
+using UnityEditor;
 using UnityEngine;
+using Utils.Services;
 
 namespace Systems.ResourcesSystem
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Shop/StructureShop")]
-    public class StructureShop : ScriptableObject, IShop<StructureShopItem>
+    public class StructureShop : StandartShop<StructureShopItem>
     {
-        [SerializeField] private List<StructureShopItem> items;
-        public List<StructureShopItem> Items => items;
-        public void Buy(StructureShopItem item, int count)
-        {
-            item.Buy(count);
-        }
-
-        public bool CanBeBought(StructureShopItem item, int count)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

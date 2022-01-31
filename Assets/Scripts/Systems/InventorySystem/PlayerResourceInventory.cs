@@ -30,6 +30,8 @@ namespace Systems.InventorySystem
                 Items[item] += count;
             else
                 Items.Add(item, count);
+            
+            Events.Invoke(new ResourceAddedEvent(new ResourceObject(item,count)));
             return true;
         }
 
@@ -40,6 +42,8 @@ namespace Systems.InventorySystem
                 Items[item] -= count;
                 return true;
             }
+            
+            Events.Invoke(new ResourceRemovedEvent(new ResourceObject(item,count)));
             return false;
         }
 

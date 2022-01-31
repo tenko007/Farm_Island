@@ -8,5 +8,7 @@ namespace Systems.ResourcesSystem
         public string Name;
         public string Description;
         public Sprite Icon;
+        public int basePurchasePrice;
+        public int baseSellPrice;
     }
 }

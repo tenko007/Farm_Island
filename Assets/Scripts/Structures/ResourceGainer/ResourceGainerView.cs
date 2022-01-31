@@ -45,6 +45,9 @@ namespace Systems.BuildingSystem
 
         private void ShowCollectableProp()
         {
+            if (((ResourceGainerModel)Model).CollectNotificationPrefab == null)
+                return;
+                
             NotificationObject = GameObject.Instantiate((
                 (ResourceGainerModel) Model).CollectNotificationPrefab, this.transform, false);
             NotificationObject.transform.localPosition = Vector3.up * 5;
@@ -52,7 +55,8 @@ namespace Systems.BuildingSystem
         
         private void OnCollected()
         {
-            Destroy(NotificationObject);
+            if (NotificationObject != null)
+                Destroy(NotificationObject);
         }
     }
 }

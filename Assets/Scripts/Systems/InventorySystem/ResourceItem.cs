@@ -1,21 +1,22 @@
 ﻿using Systems.ResourcesSystem;
 using UnityEngine;
+using UnityEngine.SearchService;
+using Utils.Services;
 
 namespace Systems.InventorySystem
 {
     public class ResourceItem : IItem<Resource>
     {
-        private Resource _resource;
+        private Resource resource;
         public int Count { get; }
-
-        public string Name => _resource.Name;
-        public string Description => _resource.Description;
-        public Sprite Icon => _resource.Icon;
-        public Resource Item => _resource;
+        public string Name => resource.Name;
+        public string Description => resource.Description;
+        public Sprite Icon => resource.Icon;
+        public Resource Item => resource;
 
         public ResourceItem(Resource resource, int count)
         {
-            this._resource = resource;
+            this.resource = resource;
             this.Count = count;
         }
     }

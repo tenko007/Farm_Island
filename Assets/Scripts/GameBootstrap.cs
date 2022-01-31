@@ -4,6 +4,7 @@ using CameraMovementSystem;
 using Systems.AudioSystem;
 using Systems.BuildingSystem;
 using Systems.InventorySystem;
+using Systems.ResourcesSystem;
 using UnityEngine;
 using Utils;
 using Utils.EventSystem;
@@ -22,6 +23,9 @@ public class GameBootstrap : MonoBehaviour
 
     [Header("GameObjects")] 
     [SerializeField] private Map map;
+
+    [Header("Data")] 
+    [SerializeField] private ResourceList ResourcesList;
     
     private IInputSystem inputSystem;
     private IPlayerExperience playerExperience;
@@ -30,6 +34,7 @@ public class GameBootstrap : MonoBehaviour
     {
         Services.SetServiceLocator(new ServiceLocator());
         Events.SetEventAggregator(new EventAggregator());
+        ResourceManager.SetResourceActions(new ResourceActions());
 
         SetupVariables();
         RegisterServices();
@@ -52,6 +57,7 @@ public class GameBootstrap : MonoBehaviour
         Services.RegisterService<IPlayerResourceInventory>(new PlayerResourceInventory());
         Services.RegisterService<IBuildingSystem>(new BuildingSystem(map));
         Services.RegisterService<IUpdateSystem>(Instantiate(new GameObject().AddComponent<UpdateSystem>(), this.transform));
+        Services.RegisterService<IResourceList>(ResourcesList);
     }
     
     private void SetupUtils()

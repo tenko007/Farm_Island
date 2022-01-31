@@ -96,6 +96,8 @@ MonoBehaviour:
     type: 2}
   audioSource: {fileID: 4687004003638604717}
   soundsData: {fileID: 11400000, guid: 023e0b2fef6ecd940b3904abdfb07a23, type: 2}
+  map: {fileID: 0}
+  ResourcesList: {fileID: 11400000, guid: 3e936a50bbc1394448564ac6c42ceae8, type: 2}
 --- !u!1001 &2193325482516311133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103,6 +105,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3282043676356505948}
     m_Modifications:
+    - target: {fileID: 700632915474454277, guid: 57cff961ab6a0db4a806fc81e1ef58f4,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 700632915483400537, guid: 57cff961ab6a0db4a806fc81e1ef58f4,
         type: 3}
       propertyPath: m_Name

@@ -1,6 +1,8 @@
 ﻿using System;
+using ExperienceSystem;
 using UnityEngine;
 using Utils.EventSystem;
+using Utils.Services;
 
 namespace Systems.ResourcesSystem
 {
@@ -24,8 +26,7 @@ namespace Systems.ResourcesSystem
 
         public bool CanBeBought()
         {
-            // TODO
-            return true;
+            return Services.GetService<IPlayerExperience>().Level >= minLevelToBuy;
         }
 
     }

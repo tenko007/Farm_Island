@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Wheat
   Description: Wheat is beautifut
-  Icon: {fileID: 21300070, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  Icon: {fileID: 21300000, guid: 9ceea7696702c30448f0c764592cf081, type: 3}
+  basePurchasePrice: 10
+  baseSellPrice: 5

@@ -54,10 +54,16 @@ MonoBehaviour:
     type: 3}
   StructureShopWindow: {fileID: 4268035240679391164, guid: 940a4d5456b6dc0429aa1ff47bee9e65,
     type: 3}
+  ResourceShopWindow: {fileID: 0}
+  PlayerInventoryWindow: {fileID: 169549335888900504, guid: c8056f7f22f54e048a9ceb5141b6ee80,
+    type: 3}
   MainCanvas: {fileID: 8913823781119918458}
   NotificationsCanvas: {fileID: 8913823781338834465}
   PopupsCanvas: {fileID: 3091476117133152036}
   BuildButton: {fileID: 7079562838299884312}
+  InventoryButton: {fileID: 1549257450837603871}
+  ShopButton: {fileID: 5244966400543898263}
+  SearchButton: {fileID: 6470533090100109629}
 --- !u!1001 &1804934391253884196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,6 +318,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04128ec3f12e93443825b2793764c562, type: 3}
+--- !u!1 &1549257450837603871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 904233094492433211, guid: 04128ec3f12e93443825b2793764c562,
+    type: 3}
+  m_PrefabInstance: {fileID: 1804934391253884196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5244966400543898263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5892317322958727091, guid: 04128ec3f12e93443825b2793764c562,
+    type: 3}
+  m_PrefabInstance: {fileID: 1804934391253884196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6470533090100109629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4667868675531947033, guid: 04128ec3f12e93443825b2793764c562,
+    type: 3}
+  m_PrefabInstance: {fileID: 1804934391253884196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7079562838299884312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8877653285016266300, guid: 04128ec3f12e93443825b2793764c562,

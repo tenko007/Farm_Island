@@ -6,6 +6,7 @@ namespace Systems.ResourcesSystem
     {
         List<T> Items { get; }
         void Buy(T item, int count);
+        bool CanBeBought(T item);
         bool CanBeBought(T item, int count);
     }
 }
