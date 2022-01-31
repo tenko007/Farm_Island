@@ -24,7 +24,7 @@ namespace Systems.ResourcesSystem
                 IconImage.sprite = Item.Icon;
             
             if (NameTextBox != null)
-                NameTextBox.name = Item.Name;
+                NameTextBox.text = Item.Name;
             
             if (PriceTextBox != null)
                 PriceTextBox.text = Item.Price.ToString();

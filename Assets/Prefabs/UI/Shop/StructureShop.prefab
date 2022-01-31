@@ -57,7 +57,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 120}
+  m_CellSize: {x: 100, y: 160}
   m_Spacing: {x: 5, y: 5}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 4881358210304031203}
   - component: {fileID: 3860197786873962723}
   m_Layer: 0
-  m_Name: BuildingShop
+  m_Name: StructureShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
