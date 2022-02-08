@@ -5,10 +5,8 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
-Assets/Plugins/Sirenix/
 Assets/AssetStoreTools*
 .idea/
-*Sirenix*
 
 # Visual Studio cache directory
 .vs/
