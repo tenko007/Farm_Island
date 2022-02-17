@@ -1,14 +1,12 @@
 ﻿using Foundation.MVC;
-using Structures;
 using UnityEngine;
 
 namespace Systems.InventorySystem
 {
     public class StructureItem : IItem<BuildingModel>
     {
-        private BuildingModel _buildingModel;
+        private readonly BuildingModel _buildingModel;
         public int Count { get; }
-
         public string Name => _buildingModel.Name;
         public string Description => _buildingModel.Description;
         public Sprite Icon => _buildingModel.Icon;
